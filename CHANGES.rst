@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0a1 (unreleased)
+1.0a1 (2018-07-27)
 ------------------
 
 - Add content-type Patrimoine
