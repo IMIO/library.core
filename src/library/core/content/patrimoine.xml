@@ -42,7 +42,7 @@
         <required>False</required>
         <title>Editeur</title>
       </field>
-      <field name="date" type="zope.schema.TextLine">
+      <field name="date" type="zope.schema.Date">
         <description/>
         <required>False</required>
         <title>Date</title>

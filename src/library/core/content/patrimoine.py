@@ -2,6 +2,9 @@
 from plone.dexterity.content import Container
 from plone.supermodel import model
 from zope.interface import implementer
+from plone.autoform import directives as form
+
+from library.core.widget.textdate import TextDateFieldWidget
 
 
 class IPatrimoine(model.Schema):
@@ -9,6 +12,8 @@ class IPatrimoine(model.Schema):
     """
 
     model.load('patrimoine.xml')
+    form.widget('date', TextDateFieldWidget)
+
 
 
 @implementer(IPatrimoine)
