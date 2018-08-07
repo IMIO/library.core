@@ -14,7 +14,7 @@
       <title>Num&#233;ro d'inventaire</title>
     </field>
     <field name="informations" type="plone.app.textfield.RichText">
-      <default>&lt;p&gt;3&lt;/p&gt;</default>
+      <default></default>
       <description/>
       <required>False</required>
       <title>Informations</title>

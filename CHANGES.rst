@@ -5,7 +5,8 @@ Changelog
 1.0a2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix default value
+  [vpiret]
 
 
 1.0a1 (2018-07-27)
