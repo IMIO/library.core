@@ -15,6 +15,7 @@
 
   <include package=".browser" />
   <include package=".widget" />
+  <include package=".content" />
 
   <include file="permissions.zcml" />
 

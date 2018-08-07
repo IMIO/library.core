@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from plone.dexterity.content import Container
+from plone.dexterity.browser import view
 from plone.supermodel import model
 from zope.interface import implementer
 from plone.autoform import directives as form
@@ -15,8 +16,12 @@ class IPatrimoine(model.Schema):
     form.widget('date', TextDateFieldWidget)
 
 
-
 @implementer(IPatrimoine)
 class Patrimoine(Container):
+    """
+    """
+
+
+class PatrimoineView(view.DefaultView):
     """
     """
