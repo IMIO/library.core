@@ -5,8 +5,8 @@ Changelog
 1.0a3 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
+- Fix description for `Patrimoine` field
+  [vpiret]
 
 1.0a2 (2018-08-08)
 ------------------
