@@ -11,7 +11,14 @@ Changelog
 1.0a2 (2018-08-08)
 ------------------
 
-- Fix default value
+- Fix default value for `informations` field
+  [vpiret]
+
+- Add a custom view for `Patrimoine` content type to fix an issue with
+  related items
+  [vpiret]
+
+- Extend `Patrimoine` to add more fields
   [vpiret]
 
 
