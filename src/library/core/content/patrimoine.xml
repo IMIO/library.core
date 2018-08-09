@@ -173,7 +173,7 @@
         <title>Nom du conjoint 4</title>
       </field>
       <field name="evenement_date_4" type="zope.schema.Choice">
-        <description>(jj/mm/aaaa)</description>
+        <description/>
         <required>False</required>
         <title>Ev&#233;nement li&#233; &#224; la date 4</title>
         <values>
@@ -183,7 +183,7 @@
         </values>
       </field>
       <field name="date_evenement_4" type="zope.schema.TextLine">
-        <description/>
+        <description>(jj/mm/aaaa)</description>
         <required>False</required>
         <title>Date &#233;v&#233;nement 4</title>
       </field>
