@@ -15,9 +15,9 @@
         <div tal:condition="not:python: widget.__name__=='contenus_lies'">
           <tal:widget tal:replace="structure widget/@@ploneform-render-widget"/>
         </div>
-        <div tal:condition="python: widget.__name__=='contenus_lies'">
+        <div tal:condition="python: widget.__name__=='contenus_lies' and context.contenus_lies">
           <label i18n:translate="">Contenus liés</label>
-          <ul tal:repeat="obj context/contenus_lies" tal:condition="context/contenus_lies">
+          <ul tal:repeat="obj context/contenus_lies">
             <li>
               <a href="" tal:attributes="href obj/to_object/absolute_url"><span tal:content="obj/to_object/title"></span></a>
             </li>

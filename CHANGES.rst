@@ -5,8 +5,8 @@ Changelog
 1.0a4 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
+- Hide contenus_lies in `Patrimoine` when there is none
+  [daggelpop]
 
 1.0a3 (2018-08-09)
 ------------------
