@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0a4 (unreleased)
+1.0a4 (2018-08-13)
 ------------------
 
 - Hide contenus_lies in `Patrimoine` when there is none
