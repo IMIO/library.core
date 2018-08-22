@@ -5,7 +5,8 @@ Changelog
 1.0a5 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Extend accepted date encoding formats for `Patrimoine`
+  [daggelpop]
 
 
 1.0a4 (2018-08-13)
