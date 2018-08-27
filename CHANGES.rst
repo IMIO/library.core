@@ -8,6 +8,9 @@ Changelog
 - Extend accepted date encoding formats for `Patrimoine`
   [daggelpop]
 
+- Use collective.z3cform.select2 widgets for taxonomy input
+  [daggelpop]
+
 
 1.0a4 (2018-08-13)
 ------------------
