@@ -42,8 +42,7 @@
         <required>False</required>
         <title>Editeur</title>
       </field>
-      <field name="date" type="zope.schema.TextLine"
-             form:validator="library.core.content.patrimoine.DateValidator">
+      <field name="date" type="zope.schema.TextLine">
         <description/>
         <required>False</required>
         <title>Date</title>
