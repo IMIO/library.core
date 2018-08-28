@@ -5,8 +5,6 @@
     xmlns:zcml="http://namespaces.zope.org/zcml"
     i18n_domain="library.core">
 
-  <adapter factory=".textdate.TextDateConverter" />
-
   <!-- Use collective.z3cform.select2 widgets for collective.taxonomy field selections -->
 
   <!-- Simple choice taxonomy -->
