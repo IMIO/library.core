@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0a5 (unreleased)
+1.0a5 (2018-09-04)
 ------------------
 
 - Extend accepted date encoding formats for `Patrimoine`
