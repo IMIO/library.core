@@ -10,39 +10,44 @@
 <metal:main fill-slot="content-core">
 <metal:content-core define-macro="content-core">
 
-  <tal:block repeat="widget view/widgets/values|nothing">
-    <tal:block tal:condition="python:widget.__name__ not in ('IBasic.title', 'IBasic.description', 'title', 'description', 'ILeadImage.image', 'ILeadImage.image_caption',)">
-      <div tal:condition="not:python: widget.__name__=='contenus_lies'">
-        <tal:widget tal:replace="structure widget/@@ploneform-render-widget"/>
-      </div>
-      <div tal:condition="python: widget.__name__=='contenus_lies' and context.contenus_lies">
-        <label i18n:translate="">Contenus liés</label>
-        <ul tal:repeat="obj context/contenus_lies">
-          <li>
-            <a href="" tal:attributes="href obj/to_object/absolute_url"><span tal:content="obj/to_object/title"></span></a>
-          </li>
-        </ul>
-      </div>
-    </tal:block>
-  </tal:block>
+  <tal:widget
+     tal:define="widget python:view.widgets.get('numero_inventaire', None)"
+     tal:condition="widget"
+     tal:replace="structure widget/@@ploneform-render-widget" />
 
-  <fieldset tal:define="group python: view.fieldsets['publication']"
-            tal:attributes="id python:''.join((group.prefix, 'groups.', group.__name__)).replace('.', '-')">
-      <legend tal:content="group/label" />
-      <tal:block tal:repeat="widget group/widgets/values">
-          <tal:widget tal:replace="structure widget/@@ploneform-render-widget"/>
-      </tal:block>
-  </fieldset>
 
   <fieldset tal:repeat="group view/groups|nothing"
             tal:attributes="id python:''.join((group.prefix, 'groups.', group.__name__)).replace('.', '-')">
-      <tal:block tal:condition="python:group.__name__ not in ('publication', 'categorization',)">
+      <tal:block tal:condition="python:group.__name__ not in ('categorization',)">
           <legend tal:content="group/label" />
           <tal:block tal:repeat="widget group/widgets/values">
               <tal:widget tal:replace="structure widget/@@ploneform-render-widget"/>
           </tal:block>
       </tal:block>
   </fieldset>
+
+  <tal:widget
+     tal:define="widget python:view.widgets.get('informations', None)"
+     tal:condition="widget"
+     tal:replace="structure widget/@@ploneform-render-widget" />
+
+  <tal:widget
+   tal:define="widget python:view.widgets.get('contenus_lies', None)"
+   tal:condition="python: widget and context.contenus_lies">
+      <label i18n:translate="">Contenus liés</label>
+      <ul tal:repeat="obj context/contenus_lies">
+          <li>
+              <a href="" tal:attributes="href obj/to_object/absolute_url">
+                  <span tal:content="obj/to_object/title"></span>
+              </a>
+          </li>
+      </ul>
+  </tal:widget>
+
+  <tal:widget
+     tal:define="widget python:view.widgets.get('fichier_pdf', None)"
+     tal:condition="widget"
+     tal:replace="structure widget/@@ploneform-render-widget" />
 
   <!-- lead image, integrated with fancybox gallery. -->
   <tal:block tal:condition="context/image">
@@ -57,6 +62,7 @@
           <img src="" tal:attributes="src preview_image/url">
     </a>
   </tal:block>
+
   <fieldset tal:define="group python: view.fieldsets['categorization']"
             tal:attributes="id python:''.join((group.prefix, 'groups.', group.__name__)).replace('.', '-')">
       <legend tal:content="group/label" />
