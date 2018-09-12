@@ -28,6 +28,19 @@
 
   <fieldset tal:repeat="group view/groups|nothing"
             tal:attributes="id python:''.join((group.prefix, 'groups.', group.__name__)).replace('.', '-')">
+  <!-- lead image, integrated with fancybox gallery. -->
+  <tal:block tal:condition="context/image">
+    <a id="form-widgets-ILeadImage-image"
+       data-fancybox="gallery"
+       href=""
+       tal:define="scale_func context/@@images;
+                   full_size_image python: scale_func.scale('image');
+                   preview_image python: scale_func.scale('image', scale='preview');"
+       tal:attributes="href full_size_image/url;
+                       data-caption context/image_caption|nothing">
+          <img src="" tal:attributes="src preview_image/url">
+    </a>
+  </tal:block>
       <legend tal:content="group/label" />
       <tal:block tal:repeat="widget group/widgets/values">
           <tal:widget tal:replace="structure widget/@@ploneform-render-widget"/>
