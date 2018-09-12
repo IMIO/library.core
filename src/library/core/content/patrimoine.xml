@@ -37,6 +37,16 @@
       <title>Fichier PDF</title>
     </field>
     <fieldset name="publication" label="Publication">
+      <field name="auteur" type="zope.schema.TextLine">
+        <description/>
+        <required>False</required>
+        <title>Auteur</title>
+      </field>
+      <field name="lieu" type="zope.schema.TextLine">
+        <description/>
+        <required>False</required>
+        <title>Lieu</title>
+      </field>
       <field name="editeur" type="zope.schema.TextLine">
         <description/>
         <required>False</required>
@@ -46,11 +56,6 @@
         <description/>
         <required>False</required>
         <title>Date</title>
-      </field>
-      <field name="auteur" type="zope.schema.TextLine">
-        <description/>
-        <required>False</required>
-        <title>Auteur</title>
       </field>
       <field name="nombre_de_pages" type="zope.schema.TextLine">
         <description/>
