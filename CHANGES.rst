@@ -5,7 +5,14 @@ Changelog
 1.0a6 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Reorder fields in `Patrimoine` view
+  [daggelpop]
+
+- Integrate `Patrimoine` lead image with the fancybox gallery
+  [daggelpop]
+
+- Add lieu field in `Patrimoine`
+  [daggelpop]
 
 
 1.0a5 (2018-09-04)
