@@ -14,4 +14,15 @@
       permission="zope2.View"
       layer="..interfaces.ILibraryCoreLayer"
       />
+
+  <!-- Render contenus_lies -->
+  <browser:viewlet
+      for=".patrimoine.IPatrimoine"
+      name="library.core.patrimoine.contenus_lies"
+      manager="plone.app.layout.viewlets.interfaces.IBelowContent"
+      template="templates/contenus_lies.pt"
+      permission="zope2.View"
+      layer="..interfaces.ILibraryCoreLayer"
+      />
+
 </configure>

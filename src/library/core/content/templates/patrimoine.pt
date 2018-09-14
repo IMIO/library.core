@@ -32,19 +32,6 @@
      tal:replace="structure widget/@@ploneform-render-widget" />
 
   <tal:widget
-   tal:define="widget python:view.widgets.get('contenus_lies', None)"
-   tal:condition="python: widget and context.contenus_lies">
-      <label i18n:translate="">Contenus liés</label>
-      <ul tal:repeat="obj context/contenus_lies">
-          <li>
-              <a href="" tal:attributes="href obj/to_object/absolute_url">
-                  <span tal:content="obj/to_object/title"></span>
-              </a>
-          </li>
-      </ul>
-  </tal:widget>
-
-  <tal:widget
      tal:define="widget python:view.widgets.get('fichier_pdf', None)"
      tal:condition="widget"
      tal:replace="structure widget/@@ploneform-render-widget" />
