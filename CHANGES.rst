@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0a6 (unreleased)
+1.0a6 (2018-09-14)
 ------------------
 
 - Reorder fields in `Patrimoine` view
