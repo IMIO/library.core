@@ -14,7 +14,7 @@ long_description = '\n\n'.join([
 
 setup(
     name='library.core',
-    version='1.0a6',
+    version='1.0a7.dev0',
     description="Core package for Bibliotheca",
     long_description=long_description,
     # Get more from https://pypi.python.org/pypi?%3Aaction=list_classifiers
