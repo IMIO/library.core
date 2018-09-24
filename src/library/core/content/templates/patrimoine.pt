@@ -37,7 +37,8 @@
      tal:replace="structure widget/@@ploneform-render-widget" />
 
   <!-- lead image, integrated with fancybox gallery. -->
-  <tal:block tal:condition="context/image">
+  <tal:block tal:condition="context/image"
+              tal:define="lead_image_caption context/image_caption|nothing">
     <a id="form-widgets-ILeadImage-image"
        data-fancybox="gallery"
        href=""
@@ -45,9 +46,10 @@
                    full_size_image python: scale_func.scale('image');
                    preview_image python: scale_func.scale('image', scale='preview');"
        tal:attributes="href full_size_image/url;
-                       data-caption context/image_caption|nothing">
+                       data-caption lead_image_caption">
           <img src="" tal:attributes="src preview_image/url">
     </a>
+    <div class="leadimagecaption" tal:content="lead_image_caption"></div>
   </tal:block>
 
   <fieldset tal:define="group python: view.fieldsets.get('categorization', None)"
