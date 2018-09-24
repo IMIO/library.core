@@ -50,7 +50,8 @@
     </a>
   </tal:block>
 
-  <fieldset tal:define="group python: view.fieldsets['categorization']"
+  <fieldset tal:define="group python: view.fieldsets.get('categorization', None)"
+             tal:condition="group"
             tal:attributes="id python:''.join((group.prefix, 'groups.', group.__name__)).replace('.', '-')">
       <legend tal:content="group/label" />
       <tal:block tal:repeat="widget group/widgets/values">
