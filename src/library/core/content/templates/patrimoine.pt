@@ -44,7 +44,7 @@
        href=""
        tal:define="scale_func context/@@images;
                    full_size_image python: scale_func.scale('image');
-                   preview_image python: scale_func.scale('image', scale='preview');"
+                   preview_image python: scale_func.scale('image', scale='preview', direction='thumbnail');"
        tal:attributes="href full_size_image/url;
                        data-caption lead_image_caption">
           <img src="" tal:attributes="src preview_image/url">
