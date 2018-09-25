@@ -25,4 +25,9 @@
       layer="..interfaces.ILibraryCoreLayer"
       />
 
+  <adapter
+    name="SearchableText"
+    factory=".patrimoine.searchabletext_patrimoine"
+    />
+
 </configure>
