@@ -5,7 +5,17 @@ Changelog
 1.0a7 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Enable Full text search on `Patrimoine`
+  [daggelpop]
+
+- Scale `Patrimoine` lead image without cropping
+  [daggelpop]
+
+- Show caption under `Patrimoine` lead image
+  [daggelpop]
+
+- Fix error when there is no categorization
+  [daggelpop]
 
 
 1.0a6 (2018-09-14)
