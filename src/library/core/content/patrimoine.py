@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from collective.taxonomy.interfaces import ITaxonomy
 from datetime import datetime
 from plone.app.textfield.value import IRichTextValue
 from plone.autoform import directives as form
@@ -8,6 +9,7 @@ from plone.dexterity.utils import iterSchemata
 from plone.indexer.decorator import indexer
 from plone.supermodel import model
 from re import match
+from zope.component import queryUtility
 from zope.interface import implementer
 from zope.interface import Invalid
 from zope.schema import getFields
@@ -66,8 +68,12 @@ class PatrimoineView(view.DefaultView):
 @indexer(IPatrimoine)
 def searchabletext_patrimoine(object, **kw):
     """
-    Indexes every text and rich text field (+ keywords) in Patrimoine objects,
-    making them available in Full Text Search.
+    Indexes the following field types in Patrimoine objects,
+    making them available in Full Text Search:
+    - text
+    - rich text
+    - keywords
+    - taxonomies
     """
     result = []
     subjects = getattr(object, 'subject', None)
@@ -78,6 +84,25 @@ def searchabletext_patrimoine(object, **kw):
         result.append(text.encode('utf-8'))
 
     for schemata in iterSchemata(object):
+        if 'collective.taxonomy.generated' in str(schemata):
+            value = getattr(object,
+                            'taxonomy_{}'.format(schemata.__name__),
+                            None)
+            if value:
+                value = [value] if type(value) is unicode else value
+                translator = queryUtility(
+                    ITaxonomy,
+                    name='collective.taxonomy.{}'.format(schemata.__name__)
+                )
+                for taxonomy_id in value:
+                    translation = translator.translate(
+                        taxonomy_id,
+                        target_language='fr',
+                    )
+                    text = safe_unicode(translation).encode('utf-8')
+                    result.append(text)
+            continue
+
         for field_name, field_type in getFields(schemata).items():
             value = getattr(object, field_name, None)
             if type(value) is unicode:
