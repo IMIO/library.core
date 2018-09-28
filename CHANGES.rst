@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0a7 (unreleased)
+1.0a7 (2018-09-28)
 ------------------
 
 - Enable Full text search on `Patrimoine`
