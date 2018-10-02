@@ -5,7 +5,8 @@ Changelog
 1.0a8 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Upgrade step to purge Patrimoine lead image scales
+  [daggelpop]
 
 
 1.0a7 (2018-09-28)
