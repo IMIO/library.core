@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0a8 (unreleased)
+1.0a8 (2018-10-02)
 ------------------
 
 - Upgrade step to purge Patrimoine lead image scales
