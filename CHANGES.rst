@@ -5,7 +5,8 @@ Changelog
 1.0a9 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Breaking change: become Plone 5.2 and python 3 compatible only.
+  [bsuttor]
 
 
 1.0a8 (2018-10-02)
