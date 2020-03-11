@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-1.0a9 (unreleased)
+2.0.0 (2020-03-11)
 ------------------
 
 - Breaking change: become Plone 5.2 and python 3 compatible only.
