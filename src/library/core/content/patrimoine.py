@@ -47,9 +47,9 @@ class DateValidator(SimpleFieldValidator):
             for regex, datetime_format in self.regex_formats.items():
                 if match(regex, stripped):
                     try:
-                        test = datetime.strptime(stripped, datetime_format).date()
+                        datetime.strptime(stripped, datetime_format).date()
                         return True
-                    except ValueError as e:
+                    except ValueError:
                         raise Invalid(u"Date invalide")
             raise Invalid(
                 u"Format d'encodage non reconnu (jour/mois/année, mois/année ou année)"
@@ -85,11 +85,11 @@ def searchabletext_patrimoine(object, **kw):
 
     for schemata in iterSchemata(object):
         if "collective.taxonomy.generated" in str(schemata):
-            value = getattr(object, "taxonomy_{}".format(schemata.__name__), None)
+            value = getattr(object, "taxonomy_{0}".format(schemata.__name__), None)
             if value:
                 value = [value] if isinstance(value, six.text_types) else value
                 translator = queryUtility(
-                    ITaxonomy, name="collective.taxonomy.{}".format(schemata.__name__)
+                    ITaxonomy, name="collective.taxonomy.{0}".format(schemata.__name__)
                 )
                 for taxonomy_id in value:
                     translation = translator.translate(
