@@ -25,7 +25,8 @@ setup(
         "Framework :: Plone",
         "Framework :: Plone :: 5.2",
         "Programming Language :: Python",
-        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.7",
         "Operating System :: OS Independent",
         "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
     ],
@@ -47,6 +48,7 @@ setup(
         "z3c.jbot",
         "collective.behavior.gallery",
         "collective.taxonomy",
+        "collective.z3cform.select2",
     ],
     extras_require={
         "test": [
