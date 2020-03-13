@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-2.0.1 (unreleased)
+2.0.1 (2020-03-13)
 ------------------
 
 - Fix python3 partimoine content indexing.
