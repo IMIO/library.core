@@ -81,7 +81,7 @@ def searchabletext_patrimoine(object, **kw):
     subjects = getattr(object, "subject", None)
     if type(subjects) is tuple:
         text = " ".join([s for s in subjects if isinstance(s, six.text_type)])
-        result.append(text.encode("utf-8"))
+        result.append(text)
 
     for schemata in iterSchemata(object):
         if "collective.taxonomy.generated" in str(schemata):

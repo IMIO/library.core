@@ -5,6 +5,9 @@ Changelog
 2.0.1 (unreleased)
 ------------------
 
+- Fix python3 partimoine content indexing.
+  [bsuttor]
+
 - Adding first tests.
   [bsuttor]
 
