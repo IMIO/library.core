@@ -34,6 +34,7 @@
   <element
      value="plone.app.dexterity.behaviors.nextprevious.INextPreviousEnabled"/>
   <element value="plone.app.dexterity.behaviors.metadata.IDublinCore"/>
+  <element value="collective.geolocationbehavior.geolocation.IGeolocatable"/>
  </property>
  <property name="schema">library.core.content.patrimoine.IPatrimoine</property>
  <property name="model_source"></property>

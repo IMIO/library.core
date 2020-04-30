@@ -5,7 +5,8 @@ Changelog
 2.0.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add behavior to patrimoine content: collective.geolocationbehavior.geolocation.IGeolocatable.
+  [bsuttor]
 
 
 2.0.1 (2020-03-13)
