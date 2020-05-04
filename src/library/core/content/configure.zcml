@@ -30,4 +30,9 @@
     factory=".patrimoine.searchabletext_patrimoine"
     />
 
+  <adapter
+    name="IsGeolocated"
+    factory=".patrimoine.is_geolocated_patrimoine"
+    />
+
 </configure>
