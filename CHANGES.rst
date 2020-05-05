@@ -5,6 +5,8 @@ Changelog
 2.0.2 (unreleased)
 ------------------
 
+- Add is_geolocated indexer
+  [boulch]
 - Change value to fix how to get LeadImage Behavior (.ILeadImage bug when reinstall library.core
   [boulch]
 - Add behavior to patrimoine content: collective.geolocationbehavior.geolocation.IGeolocatable.
