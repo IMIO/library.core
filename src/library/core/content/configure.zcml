@@ -31,8 +31,8 @@
     />
 
   <adapter
-    name="IsGeolocated"
-    factory=".patrimoine.is_geolocated_patrimoine"
+    name="is_geolocated"
+    factory=".patrimoine.is_geolocated"
     />
 
 </configure>
