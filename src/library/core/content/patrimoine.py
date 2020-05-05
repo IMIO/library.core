@@ -1,42 +1,43 @@
 # -*- coding: utf-8 -*-
 from collective.taxonomy.interfaces import ITaxonomy
 from datetime import datetime
+from library.core.widget.textdate import TextDateFieldWidget
 from plone.app.textfield.value import IRichTextValue
 from plone.autoform import directives as form
-from plone.dexterity.content import Container
 from plone.dexterity.browser import view
+from plone.dexterity.content import Container
 from plone.dexterity.utils import iterSchemata
 from plone.indexer.decorator import indexer
 from plone.supermodel import model
+from Products.CMFPlone.utils import getToolByName
 from re import match
+from z3c.form.validator import SimpleFieldValidator
 from zope.component import queryUtility
 from zope.interface import implementer
 from zope.interface import Invalid
 from zope.schema import getFields
-from z3c.form.validator import SimpleFieldValidator
-from Products.CMFPlone.utils import getToolByName
 
-from library.core.widget.textdate import TextDateFieldWidget
+import six
 
 
 class IPatrimoine(model.Schema):
     """ Marker interface for Patrimoine
     """
 
-    model.load('patrimoine.xml')
-    form.widget('date', TextDateFieldWidget)
+    model.load("patrimoine.xml")
+    form.widget("date", TextDateFieldWidget)
 
 
 class DateValidator(SimpleFieldValidator):
 
     regex_formats = {
-        '\d{8}$': '%d%m%Y',
-        '\d{6}$': '%m%Y',
-        '\d{4}$': '%Y',
-        '\d{1,2}/\d{1,2}/\d{4}$': '%d/%m/%Y',
-        '\d{1,2}/\d{4}$': '%m/%Y',
-        '\d{1,2}-\d{1,2}-\d{4}$': '%d-%m-%Y',
-        '\d{1,2}-\d{4}$': '%m-%Y',
+        "\d{8}$": "%d%m%Y",
+        "\d{6}$": "%m%Y",
+        "\d{4}$": "%Y",
+        "\d{1,2}/\d{1,2}/\d{4}$": "%d/%m/%Y",
+        "\d{1,2}/\d{4}$": "%m/%Y",
+        "\d{1,2}-\d{1,2}-\d{4}$": "%d-%m-%Y",
+        "\d{1,2}-\d{4}$": "%m-%Y",
     }
 
     def validate(self, value, force=False):
@@ -46,11 +47,13 @@ class DateValidator(SimpleFieldValidator):
             for regex, datetime_format in self.regex_formats.items():
                 if match(regex, stripped):
                     try:
-                        test = datetime.strptime(stripped, datetime_format).date()
+                        datetime.strptime(stripped, datetime_format).date()
                         return True
-                    except ValueError as e:
-                        raise Invalid(u'Date invalide')
-            raise Invalid(u'Format d\'encodage non reconnu (jour/mois/année, mois/année ou année)')
+                    except ValueError:
+                        raise Invalid(u"Date invalide")
+            raise Invalid(
+                u"Format d'encodage non reconnu (jour/mois/année, mois/année ou année)"
+            )
 
 
 @implementer(IPatrimoine)
@@ -75,48 +78,44 @@ def searchabletext_patrimoine(object, **kw):
     - taxonomies
     """
     result = []
-    subjects = getattr(object, 'subject', None)
+    subjects = getattr(object, "subject", None)
     if type(subjects) is tuple:
-        text = ' '.join([str(s)
-                         for s in subjects])
+        text = " ".join([s for s in subjects if isinstance(s, six.text_type)])
         result.append(text)
+
     for schemata in iterSchemata(object):
-        if 'collective.taxonomy.generated' in str(schemata):
-            value = getattr(object,
-                            'taxonomy_{}'.format(schemata.__name__),
-                            None)
+        if "collective.taxonomy.generated" in str(schemata):
+            value = getattr(object, "taxonomy_{0}".format(schemata.__name__), None)
             if value:
-                value = [value] if type(value) is unicode else str(value)
+                value = [value] if isinstance(value, six.text_types) else value
                 translator = queryUtility(
-                    ITaxonomy,
-                    name='collective.taxonomy.{}'.format(schemata.__name__)
+                    ITaxonomy, name="collective.taxonomy.{0}".format(schemata.__name__)
                 )
                 for taxonomy_id in value:
                     translation = translator.translate(
-                        taxonomy_id,
-                        target_language='fr',
+                        taxonomy_id, target_language="fr"
                     )
-                    text = str(translation)
+                    text = translation
                     result.append(text)
             continue
 
         for field_name, field_type in getFields(schemata).items():
             value = getattr(object, field_name, None)
-            if isinstance(value, bytes):
-                text = str(value)
+            if isinstance(value, six.text_type):
+                text = value
                 result.append(text)
             elif IRichTextValue.providedBy(value):
-                transforms = getToolByName(object, 'portal_transforms')
-                text = transforms.convertTo(
-                    'text/plain',
-                    str(value.raw),
-                    mimetype=value.mimeType,
-                ).getData().strip()
+                transforms = getToolByName(object, "portal_transforms")
+                text = (
+                    transforms.convertTo(
+                        "text/plain", value.raw, mimetype=value.mimeType
+                    )
+                    .getData()
+                    .strip()
+                )
                 result.append(text)
-            else:
-                continue
 
-    return ' '.join(result)
+    return " ".join(result)
 
 
 @indexer(IPatrimoine)
