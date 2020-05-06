@@ -4,4 +4,3 @@ include *.rst
 include *.GPL
 include *.txt
 global-exclude *.pyc
-exclude .gitlab-ci.yml
