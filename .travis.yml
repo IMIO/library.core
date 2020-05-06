@@ -18,6 +18,8 @@ script:
   - bin/code-analysis
   - bin/test
 after_success:
-  - pip install -U coveralls coverage
-  - coverage combine
-  - coveralls
+  after_success:
+  - bin/createcoverage --output-dir=parts/test/coverage
+  - bin/pip install -q "coverage<5"
+  - bin/pip install -q coveralls
+  - bin/coveralls
