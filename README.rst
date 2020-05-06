@@ -13,7 +13,7 @@ library.core
     :target: https://coveralls.io/github/IMIO/library.core?branch=master
 
 
-This product have main source code for bibliotheca instances
+This product has main source code for bibliotheca instances.
 
 
 Translations
