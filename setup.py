@@ -49,6 +49,8 @@ setup(
         "collective.behavior.gallery",
         "collective.taxonomy",
         "collective.z3cform.select2",
+        "plone.app.upgrade",
+        "collective.geolocationbehavior",
     ],
     extras_require={
         "test": [
