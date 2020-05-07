@@ -120,9 +120,14 @@ def searchabletext_patrimoine(object, **kw):
 
 @indexer(IPatrimoine)
 def is_geolocated(obj):
-    if hasattr(obj, "geolocation"):
-        if hasattr(obj.geolocation, "latitude") and hasattr(obj.geolocation, "longitude"):
-            if float(obj.geolocation.latitude) != float(0) and float(obj.geolocation.longitude) != float(0):
+    if getattr(obj, "geolocation", None) is not None:
+        if (
+            getattr(obj.geolocation, "latitude", None) is not None
+            and getattr(obj.geolocation, "longitude", None) is not None
+        ):
+            if float(obj.geolocation.latitude) != float(0) and float(
+                obj.geolocation.longitude
+            ) != float(0):
                 return True
             else:
                 return False
