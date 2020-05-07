@@ -5,6 +5,10 @@ Changelog
 2.0.2 (unreleased)
 ------------------
 
+- Fix six.text_typeS > six.text_type [BIBLI-14]
+  [boulch]
+- Add is_geolocated tests
+  [boulch]
 - Add is_geolocated indexer
   [boulch]
 - Change value to fix how to get LeadImage Behavior (.ILeadImage bug when reinstall library.core
