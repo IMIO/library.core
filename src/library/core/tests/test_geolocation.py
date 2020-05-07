@@ -83,3 +83,16 @@ class TestGeolocation(unittest.TestCase):
         catalog.catalog_object(brain.getObject(), idxs=["is_geolocated"])
         is_geolocated = catalog.getIndexDataForRID(brain.getRID())["is_geolocated"]
         self.assertFalse(is_geolocated)
+
+    def test_false_if_no_latitude_and_no_longitude(self):
+        add_behavior(
+            "patrimoine", "collective.geolocationbehavior.geolocation.IGeolocatable"
+        )
+        catalog = api.portal.get_tool("portal_catalog")
+        brain = catalog(UID=self.patrimoine.UID())[0]
+        self.assertEqual(self.patrimoine.geolocation, None)
+        self.patrimoine.geolocation = "Kamoulox"
+        # reindex
+        catalog.catalog_object(brain.getObject(), idxs=["is_geolocated"])
+        is_geolocated = catalog.getIndexDataForRID(brain.getRID())["is_geolocated"]
+        self.assertFalse(is_geolocated)
