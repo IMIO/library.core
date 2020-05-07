@@ -2,10 +2,9 @@
 from library.core.testing import LIBRARY_CORE_INTEGRATION_TESTING
 from library.core.utils import add_behavior
 from plone import api
-from plone.formwidget.geolocation.geolocation import Geolocation
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
-
+from plone.formwidget.geolocation.geolocation import Geolocation
 
 import unittest
 
@@ -33,7 +32,7 @@ class TestGeolocation(unittest.TestCase):
         is_geolocated = catalog.getIndexDataForRID(brain.getRID())["is_geolocated"]
         self.assertFalse(is_geolocated)
         # reindex
-        catalog.catalog_object(brain.getObject(), idxs=['is_geolocated'])
+        catalog.catalog_object(brain.getObject(), idxs=["is_geolocated"])
         is_geolocated = catalog.getIndexDataForRID(brain.getRID())["is_geolocated"]
         self.assertTrue(is_geolocated)
 
@@ -45,7 +44,7 @@ class TestGeolocation(unittest.TestCase):
         brain = catalog(UID=self.patrimoine.UID())[0]
         self.assertEqual(self.patrimoine.geolocation, None)
         # reindex
-        catalog.catalog_object(brain.getObject(), idxs=['is_geolocated'])
+        catalog.catalog_object(brain.getObject(), idxs=["is_geolocated"])
         is_geolocated = catalog.getIndexDataForRID(brain.getRID())["is_geolocated"]
         self.assertFalse(is_geolocated)
 
@@ -58,12 +57,12 @@ class TestGeolocation(unittest.TestCase):
         self.assertEqual(self.patrimoine.geolocation, None)
         self.patrimoine.geolocation = Geolocation(latitude="55.0")
         # reindex
-        catalog.catalog_object(brain.getObject(), idxs=['is_geolocated'])
+        catalog.catalog_object(brain.getObject(), idxs=["is_geolocated"])
         is_geolocated = catalog.getIndexDataForRID(brain.getRID())["is_geolocated"]
         self.assertFalse(is_geolocated)
         self.patrimoine.geolocation = Geolocation(longitude="0.0", latitude="55.0")
         # reindex
-        catalog.catalog_object(brain.getObject(), idxs=['is_geolocated'])
+        catalog.catalog_object(brain.getObject(), idxs=["is_geolocated"])
         is_geolocated = catalog.getIndexDataForRID(brain.getRID())["is_geolocated"]
         self.assertFalse(is_geolocated)
 
@@ -76,11 +75,11 @@ class TestGeolocation(unittest.TestCase):
         self.assertEqual(self.patrimoine.geolocation, None)
         self.patrimoine.geolocation = Geolocation(longitude="5.0")
         # reindex
-        catalog.catalog_object(brain.getObject(), idxs=['is_geolocated'])
+        catalog.catalog_object(brain.getObject(), idxs=["is_geolocated"])
         is_geolocated = catalog.getIndexDataForRID(brain.getRID())["is_geolocated"]
         self.assertFalse(is_geolocated)
         self.patrimoine.geolocation = Geolocation(longitude="5.0", latitude="0.0")
-        # reindex        
-        catalog.catalog_object(brain.getObject(), idxs=['is_geolocated'])
+        # reindex
+        catalog.catalog_object(brain.getObject(), idxs=["is_geolocated"])
         is_geolocated = catalog.getIndexDataForRID(brain.getRID())["is_geolocated"]
         self.assertFalse(is_geolocated)
