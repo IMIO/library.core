@@ -5,7 +5,7 @@ from zope.component import getUtility
 
 def has_behavior(type_name, behavior_name):
     """Check if a behavior is on portal_type"""
-    fti = queryUtility(IDexterityFTI, name=type_name)
+    fti = getUtility(IDexterityFTI, name=type_name)
     if not fti:
         return
     behaviors = list(fti.behaviors)
