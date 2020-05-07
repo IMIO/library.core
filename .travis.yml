@@ -18,6 +18,7 @@ script:
   - bin/code-analysis
   - bin/test
 after_success:
-  - bin/createcoverage -d htmlcov
-  - pip install coveralls
-  - coveralls
+  - bin/createcoverage --output-dir=htmlcov
+  - bin/pip install -q "coverage<5"
+  - bin/pip install -q coveralls
+  - bin/coveralls
