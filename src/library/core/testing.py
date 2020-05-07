@@ -18,9 +18,7 @@ class LibraryCoreLayer(PloneSandboxLayer):
         # Load any other ZCML that is required for your tests.
         # The z3c.autoinclude feature is disabled in the Plone fixture base
         # layer.
-        import plone.restapi
 
-        self.loadZCML(package=plone.restapi)
         self.loadZCML(name="testing.zcml", package=library.core)
 
     def setUpPloneSite(self, portal):
