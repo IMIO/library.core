@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-2.0.3 (unreleased)
+2.0.3 (2020-05-07)
 ------------------
 
 - Add missing dependency.
