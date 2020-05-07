@@ -5,7 +5,8 @@ Changelog
 2.0.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add missing dependency.
+  [bsuttor]
 
 
 2.0.2 (2020-05-07)

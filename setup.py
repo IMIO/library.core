@@ -49,7 +49,7 @@ setup(
         "collective.behavior.gallery",
         "collective.taxonomy",
         "collective.z3cform.select2",
-        "collective.geolocationbehavior",
+        "collective.faceted.map",
     ],
     extras_require={
         "test": [
