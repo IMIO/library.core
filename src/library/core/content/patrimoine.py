@@ -87,7 +87,7 @@ def searchabletext_patrimoine(object, **kw):
         if "collective.taxonomy.generated" in str(schemata):
             value = getattr(object, "taxonomy_{0}".format(schemata.__name__), None)
             if value:
-                value = [value] if isinstance(value, six.text_types) else value
+                value = [value] if isinstance(value, six.text_type) else value
                 translator = queryUtility(
                     ITaxonomy, name="collective.taxonomy.{0}".format(schemata.__name__)
                 )
