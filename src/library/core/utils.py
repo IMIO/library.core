@@ -22,7 +22,6 @@ def add_behavior(type_name, behavior_name):
         return
     behaviors = list(fti.behaviors)
     if behavior_name not in behaviors:
-        import pdb;pdb.set_trace()
         behaviors.append(behavior_name)
         fti._updateProperty('behaviors', tuple(behaviors))
 
