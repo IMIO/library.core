@@ -9,7 +9,6 @@
 
 <metal:main fill-slot="content-core">
 <metal:content-core define-macro="content-core">
-
   <tal:widget
      tal:define="widget python:view.widgets.get('numero_inventaire', None)"
      tal:condition="widget"
@@ -18,14 +17,23 @@
 
   <fieldset tal:repeat="group view/groups|nothing"
             tal:attributes="id python:''.join((group.prefix, 'groups.', group.__name__)).replace('.', '-')">
-      <tal:block tal:condition="python:group.__name__ not in ('categorization',)">
+      <tal:block tal:condition="python:group.__name__ not in ('categorization','Bien et PPPW')">
           <legend tal:content="group/label" />
           <tal:block tal:repeat="widget group/widgets/values">
               <tal:widget tal:replace="structure widget/@@ploneform-render-widget"/>
           </tal:block>
       </tal:block>
   </fieldset>
-
+  <fieldset tal:repeat="group view/groups|nothing"
+            tal:attributes="id python:''.join((group.prefix, 'groups.', group.__name__)).replace('.', '-')">
+      <tal:block tal:condition="python:group.__name__ in ('Bien et PPPW')">
+          <legend tal:content="group/label" />
+          <tal:block tal:repeat="widget group/widgets/values">
+              <span tal:condition="exists:widget/title_renderer" tal:content="structure widget"/>
+              <tal:widget   tal:condition="not:exists:widget/title_renderer" tal:replace="structure widget/@@ploneform-render-widget"/>
+          </tal:block>
+      </tal:block>
+  </fieldset>
   <tal:widget
      tal:define="widget python:view.widgets.get('informations', None)"
      tal:condition="widget"
