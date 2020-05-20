@@ -517,6 +517,7 @@ class IPatrimoine(model.Schema):
         title=(u"3. Données relatives au propriétaire"), required=False
     )
 
+    form.read_permission(owner_datas="cmf.ModifyPortalContent")
     form.widget("owner_datas", RadioFieldWidget)
     owner_datas = schema.Choice(
         title=(u"Type de propriété"),
