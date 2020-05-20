@@ -236,7 +236,6 @@ class IPatrimoine(model.Schema):
     )
 
     provinces = schema.Choice(
-        title=(u"Provinces"),
         title=("Province"),
         required=False,
         values=["Brabant wallon", "Hainaut", "Liège", "Luxembourg", "Namur"],
