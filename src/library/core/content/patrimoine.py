@@ -525,13 +525,24 @@ class IPatrimoine(model.Schema):
         default="Privé",
     )
 
+    form.read_permission(owner_name="cmf.ModifyPortalContent")
     owner_name = schema.TextLine(
         title=(u"Nom-Prénom / Nom de l’organisme"), required=False
     )
+
+    form.read_permission(owner_address="cmf.ModifyPortalContent")
     owner_address = schema.TextLine(title=(u"Adresse"), required=False)
+
+    form.read_permission(owner_zip_code="cmf.ModifyPortalContent")
     owner_zip_code = schema.TextLine(title=(u"Code postal"), required=False)
+
+    form.read_permission(owner_entity="cmf.ModifyPortalContent")
     owner_entity = schema.TextLine(title=(u"Entité/Commune"), required=False)
+
+    form.read_permission(owner_email="cmf.ModifyPortalContent")
     owner_email = schema.TextLine(title=(u"Adresse e-mail"), required=False)
+
+    form.read_permission(owner_phone="cmf.ModifyPortalContent")
     owner_phone = schema.TextLine(title=(u"Téléphone / Gsm"), required=False)
 
     # 4. Statut de l’élément
