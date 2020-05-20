@@ -30,7 +30,7 @@
           <legend tal:content="group/label" />
           <tal:block tal:repeat="widget group/widgets/values">
               <span tal:condition="exists:widget/title_renderer" tal:content="structure widget"/>
-              <tal:widget   tal:condition="not:exists:widget/title_renderer" tal:replace="structure widget/@@ploneform-render-widget"/>
+              <tal:widget tal:condition="not:exists:widget/title_renderer" tal:replace="structure widget/@@ploneform-render-widget"/>
           </tal:block>
       </tal:block>
   </fieldset>
