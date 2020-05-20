@@ -44,6 +44,19 @@
       name="library.core-hiddenprofiles"
       />
 
+  <utility
+      component=".vocabularies.provincesvocabulary"
+      name="library.core.vocabularies.provinces_vocabulary"
+      provides="zope.schema.interfaces.IVocabularyFactory"
+  />
+
+  <utility
+      component=".vocabularies.municipalentitiesvocabulary"
+      name="library.core.vocabularies.municipalentities_vocabulary"
+      provides="zope.schema.interfaces.IVocabularyFactory"
+  />
+
+
   <!-- -*- extra stuff goes here -*- -->
 
 </configure>
