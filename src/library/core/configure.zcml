@@ -45,6 +45,18 @@
       />
 
   <utility
+      component=".vocabularies.eventsdatevocabulary"
+      name="library.core.vocabularies.eventsdate_vocabulary"
+      provides="zope.schema.interfaces.IVocabularyFactory"
+  />
+
+  <utility
+      component=".vocabularies.colorsvocabulary"
+      name="library.core.vocabularies.colors_vocabulary"
+      provides="zope.schema.interfaces.IVocabularyFactory"
+  />
+
+  <utility
       component=".vocabularies.provincesvocabulary"
       name="library.core.vocabularies.provinces_vocabulary"
       provides="zope.schema.interfaces.IVocabularyFactory"

@@ -83,7 +83,7 @@ class IPatrimoine(model.Schema):
     )
     nom_de_rue = schema.TextLine(title=(u"Nom de rue"), required=False)
     couleur = schema.Choice(
-        title=(u"Couleur"), required=False, values=["Couleur", "Noir &amp; blanc"]
+        title=(u"Couleur"), required=False, vocabulary="library.core.vocabularies.colors_vocabulary",
     )
 
     fieldset(
@@ -113,7 +113,7 @@ class IPatrimoine(model.Schema):
     evenement_date_1 = schema.Choice(
         title=(u"Evénement lié à la date 1"),
         required=False,
-        values=["Naissance", "Mariage", "Décès"],
+        vocabulary="library.core.vocabularies.eventsdate_vocabulary",
     )
     date_evenement_1 = schema.TextLine(
         title=(u"Date événement 1"), description="(jj/mm/aaaa)", required=False
@@ -124,7 +124,7 @@ class IPatrimoine(model.Schema):
     evenement_date_2 = schema.Choice(
         title=(u"Evénement lié à la date 2"),
         required=False,
-        values=["Naissance", "Mariage", "Décès"],
+        vocabulary="library.core.vocabularies.eventsdate_vocabulary",
     )
     date_evenement_2 = schema.TextLine(
         title=(u"Date événement 2"), description="(jj/mm/aaaa)", required=False
@@ -135,7 +135,7 @@ class IPatrimoine(model.Schema):
     evenement_date_3 = schema.Choice(
         title=(u"Evénement lié à la date 3"),
         required=False,
-        values=["Naissance", "Mariage", "Décès"],
+        vocabulary="library.core.vocabularies.eventsdate_vocabulary",
     )
     date_evenement_3 = schema.TextLine(
         title=(u"Date événement 3"), description="(jj/mm/aaaa)", required=False
@@ -146,7 +146,7 @@ class IPatrimoine(model.Schema):
     evenement_date_4 = schema.Choice(
         title=(u"Evénement lié à la date 4"),
         required=False,
-        values=["Naissance", "Mariage", "Décès"],
+        vocabulary="library.core.vocabularies.eventsdate_vocabulary",
     )
     date_evenement_4 = schema.TextLine(
         title=(u"Date événement 4"), description="(jj/mm/aaaa)", required=False
@@ -159,7 +159,7 @@ class IPatrimoine(model.Schema):
     couleur_du_media = schema.Choice(
         title=(u"Couleur du média"),
         required=False,
-        values=["Couleur", "Noir &amp; Blanc"],
+        vocabulary="library.core.vocabularies.colors_vocabulary",
     )
 
     fieldset(

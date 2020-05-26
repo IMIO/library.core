@@ -6,6 +6,39 @@ from zope.schema.vocabulary import SimpleVocabulary
 from zope.schema.vocabulary import SimpleTerm
 
 
+class ColorsVocabularyFactory:
+    def __call__(self, context):
+        provinces = [
+            ("couleur", "Couleur"),
+            ("noiretbanc", "Noir & Blanc"),
+        ]
+        terms = [
+            SimpleTerm(value=pair[0], token=pair[0], title=pair[1])
+            for pair in provinces
+        ]
+        return SimpleVocabulary(terms)
+
+
+colorsvocabulary = ColorsVocabularyFactory()
+
+
+class EventsdateVocabularyFactory:
+    def __call__(self, context):
+        provinces = [
+            ("naissance", "Naissance"),
+            ("mariage", "Mariage"),
+            ("deces", "Décès"),
+        ]
+        terms = [
+            SimpleTerm(value=pair[0], token=pair[0], title=pair[1])
+            for pair in provinces
+        ]
+        return SimpleVocabulary(terms)
+
+
+eventsdatevocabulary = ColorsVocabularyFactory()
+
+
 class ProvincesVocabularyFactory:
     def __call__(self, context):
         provinces = [
