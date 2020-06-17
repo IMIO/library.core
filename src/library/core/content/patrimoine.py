@@ -5,8 +5,8 @@ from collective.z3cform.select2.widget.widget import MultiSelect2FieldWidget
 from datetime import datetime
 from library.core.widget.textdate import TextDateFieldWidget
 from library.core.widget.title import TextTitleFieldWidget
-from plone.app.textfield.value import IRichTextValue
 from plone.app.textfield import RichText
+from plone.app.textfield.value import IRichTextValue
 from plone.app.vocabularies.catalog import CatalogSource
 from plone.autoform import directives as form
 from plone.dexterity.browser import view
@@ -51,7 +51,7 @@ class IPatrimoine(model.Schema):
         required=False,
     )
 
-    fichier_pdf = namedfile.NamedBlobImage(title=(u"Fichier PDF"), required=False,)
+    fichier_pdf = namedfile.NamedBlobImage(title=(u"Fichier PDF"), required=False)
 
     fieldset(
         "Publication",
@@ -83,7 +83,9 @@ class IPatrimoine(model.Schema):
     )
     nom_de_rue = schema.TextLine(title=(u"Nom de rue"), required=False)
     couleur = schema.Choice(
-        title=(u"Couleur"), required=False, vocabulary="library.core.vocabularies.colors_vocabulary",
+        title=(u"Couleur"),
+        required=False,
+        vocabulary="library.core.vocabularies.colors_vocabulary",
     )
 
     fieldset(
