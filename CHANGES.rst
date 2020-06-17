@@ -5,7 +5,14 @@ Changelog
 2.0.4 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add some permissions restrictions to hide "PPPW personal informations Owner" to anonymous user
+  [boulch]
+- Create vocabularies for "provinces" and "municipalities"
+  [boulch]
+- Create a TextTitleWidget to divide PPPW in some "section".
+  [boulch]
+- Change patrimoine xml schema to model schema
+  [boulch]
 
 
 2.0.3 (2020-05-07)
