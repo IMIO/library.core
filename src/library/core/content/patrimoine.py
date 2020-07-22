@@ -242,13 +242,13 @@ class IPatrimoine(model.Schema):
         title=("Province"),
         required=False,
         vocabulary="library.core.vocabularies.provinces_vocabulary",
-        default="namur",
+        default=None,
     )
     municipal_entity = schema.Choice(
         title=(u"Entité"),
         required=False,
         vocabulary="library.core.vocabularies.municipalentities_vocabulary",
-        default="couvin",
+        default=None,
     )
 
     # 3. Données relatives au propriétaire
@@ -262,8 +262,8 @@ class IPatrimoine(model.Schema):
     owner_datas = schema.Choice(
         title=(u"Type de propriété"),
         required=False,
-        values=["Privé", "Publique"],
-        default="Privé",
+        values=["Privé", "Publique", "Statut inconnu"],
+        default=None,
     )
 
     form.read_permission(owner_name="cmf.ModifyPortalContent")
@@ -343,7 +343,7 @@ class IPatrimoine(model.Schema):
         title=(u"Etat général de l’élément"),
         required=False,
         values=["Bon", "Moyen", "Mauvais"],
-        default="Moyen",
+        default=None,
     )
     noted_degradation = schema.Text(title=(u"Dégradation constatée"), required=False)
     form.widget("reallocation_project", RadioFieldWidget)

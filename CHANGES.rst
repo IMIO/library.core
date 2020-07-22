@@ -5,7 +5,8 @@ Changelog
 2.0.5 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Change some default values to None in PPPW
+  [boulch]
 
 
 2.0.4 (2020-07-22)
