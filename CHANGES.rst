@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-2.0.4 (unreleased)
+2.0.4 (2020-07-22)
 ------------------
 
 - Add some permissions restrictions to hide "PPPW personal informations Owner" to anonymous user
