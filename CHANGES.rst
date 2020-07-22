@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-2.0.5 (unreleased)
+2.0.5 (2020-07-22)
 ------------------
 
 - Change some default values to None in PPPW
