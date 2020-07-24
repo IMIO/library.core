@@ -208,7 +208,7 @@ class IPatrimoine(model.Schema):
     # 1. Identification de l'élément
     form.widget("group_identification", TextTitleFieldWidget)
     group_identification = schema.TextLine(
-        title=(u"1. Identification de l’élément"), required=False
+        title=(u"Identification de l’élément"), required=False
     )
     nature_du_bien = schema.TextLine(title=(u"Nature du bien"), required=False)
     lieu_dit = schema.TextLine(title=(u"Lieu dit"), required=False)
@@ -235,7 +235,7 @@ class IPatrimoine(model.Schema):
     # 2. Localisation de l'élément
     form.widget("group_localisation", TextTitleFieldWidget)
     group_localisation = schema.TextLine(
-        title=(u"2. Localisation de l’élément"), required=False
+        title=(u"Localisation de l’élément"), required=False
     )
 
     provinces = schema.Choice(
@@ -254,7 +254,7 @@ class IPatrimoine(model.Schema):
     # 3. Données relatives au propriétaire
     form.widget("group_owner", TextTitleFieldWidget)
     group_owner = schema.TextLine(
-        title=(u"3. Données relatives au propriétaire"), required=False
+        title=(u"Données relatives au propriétaire"), required=False
     )
 
     form.read_permission(owner_datas="cmf.ModifyPortalContent")
@@ -289,7 +289,7 @@ class IPatrimoine(model.Schema):
     # 4. Statut de l’élément
     form.widget("group_item_status", TextTitleFieldWidget)
     group_item_status = schema.TextLine(
-        title=(u"4. Statut de l’élément"), required=False
+        title=(u"Statut de l’élément"), required=False
     )
 
     form.widget(item_status=MultiSelect2FieldWidget)
@@ -312,7 +312,7 @@ class IPatrimoine(model.Schema):
 
     form.widget("group_item_description", TextTitleFieldWidget)
     group_item_description = schema.TextLine(
-        title=(u"5. Description de l’élément"), required=False
+        title=(u"Description de l’élément"), required=False
     )
     descriptif = schema.Text(title=(u"Descriptif"), required=False)
     dimensions = schema.TextLine(title=(u"Dimensions"), required=False)
@@ -334,7 +334,7 @@ class IPatrimoine(model.Schema):
 
     form.widget("group_item_conservation", TextTitleFieldWidget)
     group_item_conservation = schema.TextLine(
-        title=(u"6. Etat de conservation de l’élément"), required=False
+        title=(u"Etat de conservation de l’élément"), required=False
     )
 
     # quid id=etat.
@@ -354,7 +354,7 @@ class IPatrimoine(model.Schema):
     # 7. Historique/Anecdotes
     form.widget("group_item_history", TextTitleFieldWidget)
     group_item_history = schema.TextLine(
-        title=(u"7. Historique/Anecdotes"), required=False
+        title=(u"Historique/Anecdotes"), required=False
     )
     fonction_passee_et_actuelle = schema.Text(
         title=(u"Fonction(s) passée(s) et actuelle(s)"), required=False
@@ -363,7 +363,7 @@ class IPatrimoine(model.Schema):
     # 8. Remarques
     form.widget("group_item_notes_and_comments", TextTitleFieldWidget)
     group_item_notes_and_comments = schema.TextLine(
-        title=(u"8. Remarques"), required=False
+        title=(u"Remarques"), required=False
     )
     remarques_commentaires = schema.Text(
         title=(u"Remarques et commentaires"), required=False
@@ -407,6 +407,15 @@ class Patrimoine(Container):
 class PatrimoineView(view.DefaultView):
     """
     """
+
+    def is_there_any_fields_after_this_title(self, current_widget, lst_widgets):
+        current_index = lst_widgets.index(current_widget)
+        if (current_index + 1) < len(lst_widgets) and len(
+            lst_widgets[current_index + 1].value
+        ) > 0:
+            return True
+        else:
+            return False
 
 
 @indexer(IPatrimoine)
