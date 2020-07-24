@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-2.0.6 (unreleased)
+2.0.6 (2020-07-24)
 ------------------
 
 - Add method to clear pppw titles when there is no field under this title
