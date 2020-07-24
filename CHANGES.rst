@@ -5,16 +5,15 @@ Changelog
 2.0.6 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Add method to clear pppw titles when there is no field under this title
+  [boulch]
+- Rename pppw titles (remove digits)
+  [boulch]
 
 
 2.0.5 (2020-07-22)
 ------------------
 
-- Add method to clear pppw titles when there is no field under this title
-  [boulch]
-- Rename pppw titles (remove digits)
-  [boulch]
 - Change some default values to None in PPPW
   [boulch]
 
