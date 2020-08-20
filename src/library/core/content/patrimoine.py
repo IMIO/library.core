@@ -415,6 +415,26 @@ class PatrimoineView(view.DefaultView):
         else:
             return False
 
+    def is_there_any_values(self, lst_widgets):
+        if lst_widgets:
+            return (
+                False
+                if set(
+                    [
+                        widget.value
+                        if not isinstance(widget.value, list)
+                        else widget.value[0]
+                        if widget.value != [] and widget.value[0] != "unselected"
+                        else ""
+                        for widget in lst_widgets
+                    ]
+                )
+                == {""}
+                else True
+            )
+        else:
+            return False
+
 
 @indexer(IPatrimoine)
 def searchabletext_patrimoine(object, **kw):
