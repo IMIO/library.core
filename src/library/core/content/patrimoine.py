@@ -288,9 +288,7 @@ class IPatrimoine(model.Schema):
 
     # 4. Statut de l’élément
     form.widget("group_item_status", TextTitleFieldWidget)
-    group_item_status = schema.TextLine(
-        title=(u"Statut de l’élément"), required=False
-    )
+    group_item_status = schema.TextLine(title=(u"Statut de l’élément"), required=False)
 
     form.widget(item_status=MultiSelect2FieldWidget)
     item_status = schema.List(
