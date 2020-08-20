@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-2.0.7 (unreleased)
+2.0.7 (2020-08-20)
 ------------------
 
 - [BIBLI-26] : No render of widgets (other than "Bien & PPPW") when no values in field and no render of group/label if no widgets values under this group.
