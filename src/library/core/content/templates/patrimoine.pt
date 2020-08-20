@@ -30,7 +30,7 @@
           <legend tal:content="group/label" />
           <tal:block tal:define="values group/widgets/values" tal:repeat="widget group/widgets/values">
               <h2 tal:condition="exists:widget/title_renderer" tal:condition="python:view.is_there_any_fields_after_this_title(widget, values)" tal:content="structure widget"/>
-              <tal:widget tal:condition="not:exists:widget/title_renderer" tal:replace="structure widget/@@ploneform-render-widget"/>
+              <tal:widget tal:condition="not:exists:widget/title_renderer" tal:condition="widget/value"  tal:replace="structure widget/@@ploneform-render-widget"/>
           </tal:block>
       </tal:block>
   </fieldset>
@@ -68,7 +68,6 @@
           <tal:widget tal:replace="structure widget/@@ploneform-render-widget"/>
       </tal:block>
   </fieldset>
-
 </metal:content-core>
 </metal:main>
 
