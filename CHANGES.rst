@@ -5,8 +5,10 @@ Changelog
 2.0.7 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
+- [BIBLI-26] : No render of widgets (other than "Bien & PPPW") when no values in field and no render of group/label if no widgets values under this group.
+  [boulch]
+- [BIBLI-26] : No render of "Bien & PPPW" widgets when no values in field.
+  [boulch]
 
 2.0.6 (2020-07-24)
 ------------------
