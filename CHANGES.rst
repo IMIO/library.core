@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-2.0.8 (unreleased)
+2.0.8 (2020-08-27)
 ------------------
 
 - [BIBLI-28] : By default, patrimoine types have 4 taxonomies installed. 
