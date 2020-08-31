@@ -18,6 +18,12 @@
           </tal:block>
       </tal:block>
   </fieldset>
+  <!-- print field "information" -->
+  <tal:widget
+     tal:define="widget python:view.widgets.get('informations', None)"
+     tal:condition="python:self.context.informations is not None"
+     tal:replace="structure widget/@@ploneform-render-widget" />
+
   <fieldset tal:repeat="group view/groups|nothing"
             tal:attributes="id python:''.join((group.prefix, 'groups.', group.__name__)).replace('.', '-')">
       <tal:block tal:condition="python:group.__name__ in ('Bien et PPPW')">
@@ -28,10 +34,6 @@
           </tal:block>
       </tal:block>
   </fieldset>
-  <tal:widget
-     tal:define="widget python:view.widgets.get('informations', None)"
-     tal:condition="widget"
-     tal:replace="structure widget/@@ploneform-render-widget" />
 
   <tal:widget
      tal:define="widget python:view.widgets.get('fichier_pdf', None)"
