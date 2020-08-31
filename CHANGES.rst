@@ -13,6 +13,8 @@ Changelog
 
 - [BIBLI-28] : By default, patrimoine types have 4 taxonomies installed. 
 
+- Fix a vocabulary bug.
+  [boulch]
 
 2.0.7 (2020-08-20)
 ------------------
