@@ -406,6 +406,10 @@ class PatrimoineView(view.DefaultView):
     """
     """
 
+    def is_TextTitleWidget(self, current_widget):
+        from library.core.widget.title import TextTitleWidget
+        return isinstance(current_widget, TextTitleWidget)
+
     def is_there_any_fields_after_this_title(self, current_widget, lst_widgets):
         current_index = lst_widgets.index(current_widget)
         if (current_index + 1) < len(lst_widgets) and len(
