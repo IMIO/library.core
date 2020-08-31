@@ -5,15 +5,14 @@ Changelog
 2.0.9 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix a vocabulary bug.
+  [boulch]
 
 
 2.0.8 (2020-08-27)
 ------------------
 
-- [BIBLI-28] : By default, patrimoine types have 4 taxonomies installed. 
-
-- Fix a vocabulary bug.
+- [BIBLI-28] : By default, patrimoine types have 4 taxonomies installed.
   [boulch]
 
 2.0.7 (2020-08-20)
