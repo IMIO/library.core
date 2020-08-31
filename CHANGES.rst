@@ -5,7 +5,8 @@ Changelog
 2.0.10 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Fix patrimoine template.
+  [boulch]
 
 
 2.0.9 (2020-08-31)
