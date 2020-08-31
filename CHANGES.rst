@@ -5,7 +5,8 @@ Changelog
 2.0.11 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- [BIBLI-35] Get geolocation widget in patrimoine view
+  [boulch]
 
 
 2.0.10 (2020-08-31)
