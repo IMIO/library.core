@@ -22,7 +22,7 @@
   <!-- print field "information" -->
   <tal:widget
      tal:define="widget python:view.widgets.get('informations', None)"
-     tal:condition="python:self.context.informations is not None"
+     tal:condition="widget/value"
      tal:replace="structure widget/@@ploneform-render-widget" />
 
   <fieldset tal:repeat="group view/groups|nothing"
@@ -69,6 +69,7 @@
           <tal:widget tal:replace="structure widget/@@ploneform-render-widget"/>
       </tal:block>
   </fieldset>
+</div>
 </metal:content-core>
 </metal:main>
 
