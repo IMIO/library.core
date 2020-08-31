@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-2.0.10 (unreleased)
+2.0.10 (2020-08-31)
 -------------------
 
 - Fix patrimoine template.
