@@ -5,6 +5,8 @@ Changelog
 2.0.9 (unreleased)
 ------------------
 
+- Fix some display issues in patrimoine template.
+  [boulch]
 - Fix a vocabulary bug.
   [boulch]
 
