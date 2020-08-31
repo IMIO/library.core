@@ -14,7 +14,7 @@
       <tal:block tal:define="widgets group/widgets/values" tal:condition="python:group.__name__ not in ('categorization','Bien et PPPW')">
           <legend tal:content="group/label"  tal:condition="python:view.is_there_any_values(group.widgets.values())" />
           <tal:block tal:repeat="widget group/widgets/values">
-              <tal:widget tal:condition="widget/value" tal:replace="structure widget/@@ploneform-render-widget"/>
+              <tal:widget tal:condition="python:widget.value and widget.value != ['unselected']" tal:replace="structure widget/@@ploneform-render-widget"/>
           </tal:block>
       </tal:block>
   </fieldset>
