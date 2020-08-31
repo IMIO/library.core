@@ -30,8 +30,12 @@
       <tal:block tal:condition="python:group.__name__ in ('Bien et PPPW')">
           <legend tal:content="group/label" />
           <tal:block tal:define="values group/widgets/values" tal:repeat="widget group/widgets/values">
-              <h2 tal:condition="exists:widget/title_renderer" tal:condition="python:view.is_there_any_fields_after_this_title(widget, values)" tal:content="structure widget"/>
-              <tal:widget tal:condition="not:exists:widget/title_renderer" tal:condition="widget/value"  tal:replace="structure widget/@@ploneform-render-widget"/>
+              <tal:cond tal:condition="python:view.is_TextTitleWidget(widget)">
+              <h2 tal:condition="python:view.is_there_any_fields_after_this_title(widget, values)" tal:content="structure widget"/>
+              </tal:cond>
+              <tal:cond tal:condition="python:not view.is_TextTitleWidget(widget)">
+              <tal:widget tal:condition="widget/value" tal:replace="structure widget/@@ploneform-render-widget"/>
+              </tal:cond>
           </tal:block>
       </tal:block>
   </fieldset>
