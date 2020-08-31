@@ -34,7 +34,7 @@ class EventsdateVocabularyFactory:
         return SimpleVocabulary(terms)
 
 
-eventsdatevocabulary = ColorsVocabularyFactory()
+eventsdatevocabulary = EventsdateVocabularyFactory()
 
 
 class ProvincesVocabularyFactory:
