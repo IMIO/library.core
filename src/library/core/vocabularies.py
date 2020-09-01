@@ -23,9 +23,9 @@ colorsvocabulary = ColorsVocabularyFactory()
 class EventsdateVocabularyFactory:
     def __call__(self, context):
         provinces = [
-            ("naissance", "Naissance"),
-            ("mariage", "Mariage"),
-            ("deces", "Décès"),
+            ("Naissance", "Naissance"),
+            ("Mariage", "Mariage"),
+            ("Deces", "Décès"),
         ]
         terms = [
             SimpleTerm(value=pair[0], token=pair[0], title=pair[1])
