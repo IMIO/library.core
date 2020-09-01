@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-2.0.11 (unreleased)
+2.0.11 (2020-09-01)
 -------------------
 
 - [BIBLI-35] Get geolocation widget in patrimoine view
