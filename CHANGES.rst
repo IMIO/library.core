@@ -5,7 +5,8 @@ Changelog
 2.0.12 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- BIBLI-45: Do not show map when the context is not geolocated
+  [mpeeters]
 
 
 2.0.11 (2020-09-01)

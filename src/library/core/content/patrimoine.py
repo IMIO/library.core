@@ -439,6 +439,9 @@ class PatrimoineView(view.DefaultView):
         else:
             return False
 
+    def is_geolocated(self):
+        return is_geolocated(self.context)
+
 
 @indexer(IPatrimoine)
 def searchabletext_patrimoine(object, **kw):
@@ -491,7 +494,6 @@ def searchabletext_patrimoine(object, **kw):
     return " ".join(result)
 
 
-@indexer(IPatrimoine)
 def is_geolocated(obj):
     if getattr(obj, "geolocation", None) is not None:
         if (
@@ -508,3 +510,8 @@ def is_geolocated(obj):
             return False
     else:
         return False
+
+
+@indexer(IPatrimoine)
+def is_geolocated_indexer(obj):
+    return is_geolocated(obj)

@@ -32,7 +32,7 @@
 
   <adapter
     name="is_geolocated"
-    factory=".patrimoine.is_geolocated"
+    factory=".patrimoine.is_geolocated_indexer"
     />
 
 </configure>

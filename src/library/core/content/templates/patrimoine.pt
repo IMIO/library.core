@@ -69,9 +69,11 @@
           <tal:widget tal:replace="structure widget/@@ploneform-render-widget"/>
       </tal:block>
   </fieldset>
-  <tal:widget
-     tal:define="widget python:view.widgets.get('IGeolocatable.geolocation', None)"
-     tal:replace="structure widget/@@ploneform-render-widget" />
+  <tal:block condition="view/is_geolocated">
+    <tal:widget
+      tal:define="widget python:view.widgets.get('IGeolocatable.geolocation', None)"
+      tal:replace="structure widget/@@ploneform-render-widget" />
+  </tal:block>
 </div>
 </metal:content-core>
 </metal:main>
