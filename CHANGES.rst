@@ -5,6 +5,9 @@ Changelog
 2.0.12 (unreleased)
 -------------------
 
+- BIBLI-45: Show coordinates for geolocated content
+  [mpeeters]
+
 - BIBLI-45: Do not show map when the context is not geolocated
   [mpeeters]
 

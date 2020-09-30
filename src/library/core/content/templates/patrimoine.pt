@@ -4,7 +4,7 @@
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       lang="en"
       metal:use-macro="context/main_template/macros/master"
-      i18n:domain="">
+      i18n:domain="library.core">
 <body>
 
 <metal:main fill-slot="content-core">
@@ -73,6 +73,11 @@
     <tal:widget
       tal:define="widget python:view.widgets.get('IGeolocatable.geolocation', None)"
       tal:replace="structure widget/@@ploneform-render-widget" />
+    <label class="horizontal" i18n:translate="">
+      Coordinates
+    </label>
+    <span tal:content="context/geolocation/latitude" /> ;
+    <span tal:content="context/geolocation/longitude" />
   </tal:block>
 </div>
 </metal:content-core>
