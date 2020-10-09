@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-2.0.12 (unreleased)
+2.0.12 (2020-10-09)
 -------------------
 
 - BIBLI-45: Show coordinates for geolocated content
