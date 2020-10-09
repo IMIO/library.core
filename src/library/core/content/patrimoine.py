@@ -28,8 +28,21 @@ from zope.component import queryUtility
 from zope.interface import implementer
 from zope.interface import Invalid
 from zope.schema import getFields
+from zope.schema import ValidationError
 
 import six
+
+
+def fileSize(value):
+    if value.size > 30000000:
+        raise InvalidFileSizeError(value)
+    return True
+
+
+class InvalidFileSizeError(ValidationError):
+    """Exception for file size too large"""
+
+    __doc__ = "Le fichier doit faire moins de 30MB."
 
 
 class IPatrimoine(model.Schema):
@@ -51,7 +64,9 @@ class IPatrimoine(model.Schema):
         required=False,
     )
 
-    fichier_pdf = namedfile.NamedBlobImage(title=(u"Fichier PDF"), required=False)
+    fichier_pdf = namedfile.NamedBlobFile(
+        title=(u"Fichier PDF"), required=False, constraint=fileSize
+    )
 
     fieldset(
         "Publication",

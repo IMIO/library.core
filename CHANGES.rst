@@ -10,6 +10,7 @@ Changelog
 
 - BIBLI-45: Do not show map when the context is not geolocated
   [mpeeters]
+- [MBIBLIMCYA-2] Fix file field and define a file size vaildator.
 
 
 2.0.11 (2020-09-01)
