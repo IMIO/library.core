@@ -46,6 +46,7 @@ setup(
         "Products.GenericSetup>=1.8.2",
         "setuptools",
         "z3c.jbot",
+        "plone.app.discussion",
         "collective.behavior.gallery",
         "collective.taxonomy",
         "collective.z3cform.select2",

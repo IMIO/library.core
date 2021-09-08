@@ -14,13 +14,27 @@
         interface=".title.ITextTitleWidget"
         />
   </class>
-
   <z3c:widgetTemplate
       mode="input"
       widget=".title.ITextTitleWidget"
       layer="z3c.form.interfaces.IFormLayer"
       template="title.pt"
       />
+
+  <class class=".hidden_honeypot.HiddenHoneyPotWidget">
+    <require
+        permission="zope.Public"
+        interface=".hidden_honeypot.IHiddenHoneyPotWidget"
+        />
+  </class>
+  <configure package="z3c.form.browser">
+    <z3c:widgetTemplate
+        mode="input"
+        widget="library.core.widget.hidden_honeypot.IHiddenHoneyPotWidget"
+        layer="z3c.form.interfaces.IFormLayer"
+        template="text_input.pt"
+        />
+  </configure>
 
   <!-- Use collective.z3cform.select2 widgets for collective.taxonomy field selections -->
 
