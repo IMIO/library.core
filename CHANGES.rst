@@ -5,7 +5,8 @@ Changelog
 2.0.13 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Add an honeypot field to comment form
+  [boulch]
 
 
 2.0.12 (2020-10-09)
