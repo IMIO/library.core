@@ -12,7 +12,6 @@ class ITextTitleWidget(ITextWidget):
 
 @implementer(ITextTitleWidget)
 class TextTitleWidget(TextWidget):
-
     def title_renderer(self):
         return True
 

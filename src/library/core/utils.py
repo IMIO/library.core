@@ -23,7 +23,7 @@ def add_behavior(type_name, behavior_name):
     behaviors = list(fti.behaviors)
     if behavior_name not in behaviors:
         behaviors.append(behavior_name)
-        fti._updateProperty('behaviors', tuple(behaviors))
+        fti._updateProperty("behaviors", tuple(behaviors))
 
 
 def remove_behavior(type_name, behavior_name):
@@ -34,4 +34,4 @@ def remove_behavior(type_name, behavior_name):
     behaviors = list(fti.behaviors)
     if behavior_name in behaviors:
         behaviors.remove(behavior_name)
-        fti._updateProperty('behaviors', tuple(behaviors))
+        fti._updateProperty("behaviors", tuple(behaviors))

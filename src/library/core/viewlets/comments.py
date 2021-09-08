@@ -45,13 +45,11 @@ class CommentFormWithHoneyPot(CommentForm):
 
     def updateFields(self):
         super(CommentFormWithHoneyPot, self).updateFields()
-        self.fields['honeypot'].widgetFactory = \
-            HiddenHoneyPotFieldWidget
+        self.fields["honeypot"].widgetFactory = HiddenHoneyPotFieldWidget
 
     def updateWidgets(self):
         super(CommentFormWithHoneyPot, self).updateWidgets()
         self.widgets["honeypot"].label = u""
-
 
     @button.buttonAndHandler(_(u"Cancel"))
     def handleCancel(self, action):
@@ -59,8 +57,9 @@ class CommentFormWithHoneyPot(CommentForm):
         # a cancel button that is handled by a jQuery method.
         pass  # pragma: no cover
 
-    @button.buttonAndHandler(_(u'add_comment_button', default=u'Comment'),
-                             name='comment')
+    @button.buttonAndHandler(
+        _(u"add_comment_button", default=u"Comment"), name="comment"
+    )
     def handleComment(self, action):
         if self.request.form["form.widgets.honeypot"]:
             return
@@ -68,10 +67,10 @@ class CommentFormWithHoneyPot(CommentForm):
 
         # Check if conversation is enabled on this content object
         if not self.__parent__.restrictedTraverse(
-            '@@conversation_view',
+            "@@conversation_view",
         ).enabled():
             raise Unauthorized(
-                'Discussion is not enabled for this content object.',
+                "Discussion is not enabled for this content object.",
             )
 
         # Validation form
@@ -82,28 +81,26 @@ class CommentFormWithHoneyPot(CommentForm):
         # Validate Captcha
         registry = queryUtility(IRegistry)
         settings = registry.forInterface(IDiscussionSettings, check=False)
-        portal_membership = getToolByName(self.context, 'portal_membership')
-        captcha_enabled = settings.captcha != 'disabled'
+        portal_membership = getToolByName(self.context, "portal_membership")
+        captcha_enabled = settings.captcha != "disabled"
         anonymous_comments = settings.anonymous_comments
         anon = portal_membership.isAnonymousUser()
         if captcha_enabled and anonymous_comments and anon:
-            if 'captcha' not in data:
-                data['captcha'] = u''
-            captcha = CaptchaValidator(self.context,
-                                       self.request,
-                                       None,
-                                       ICaptcha['captcha'],
-                                       None)
-            captcha.validate(data['captcha'])
+            if "captcha" not in data:
+                data["captcha"] = u""
+            captcha = CaptchaValidator(
+                self.context, self.request, None, ICaptcha["captcha"], None
+            )
+            captcha.validate(data["captcha"])
 
         # Create comment
         comment = self.create_comment(data)
 
         # Add comment to conversation
         conversation = IConversation(self.__parent__)
-        if data['in_reply_to']:
+        if data["in_reply_to"]:
             # Add a reply to an existing comment
-            conversation_to_reply_to = conversation.get(data['in_reply_to'])
+            conversation_to_reply_to = conversation.get(data["in_reply_to"])
             replies = IReplies(conversation_to_reply_to)
             comment_id = replies.addComment(comment)
         else:
@@ -115,23 +112,22 @@ class CommentFormWithHoneyPot(CommentForm):
         # shown to the user that his/her comment awaits moderation. If the user
         # has 'review comments' permission, he/she is redirected directly
         # to the comment.
-        can_review = getSecurityManager().checkPermission('Review comments',
-                                                          context)
-        workflowTool = getToolByName(context, 'portal_workflow')
+        can_review = getSecurityManager().checkPermission("Review comments", context)
+        workflowTool = getToolByName(context, "portal_workflow")
         comment_review_state = workflowTool.getInfoFor(
             comment,
-            'review_state',
+            "review_state",
             None,
         )
-        if comment_review_state == 'pending' and not can_review:
+        if comment_review_state == "pending" and not can_review:
             # Show info message when comment moderation is enabled
             IStatusMessage(self.context.REQUEST).addStatusMessage(
-                _('Your comment awaits moderator approval.'),
-                type='info')
+                _("Your comment awaits moderator approval."), type="info"
+            )
             self.request.response.redirect(self.action)
         else:
             # Redirect to comment (inside a content object page)
-            self.request.response.redirect(self.action + '#' + str(comment_id))
+            self.request.response.redirect(self.action + "#" + str(comment_id))
 
 
 class CommentsViewlet(baseCommentsViewlet):

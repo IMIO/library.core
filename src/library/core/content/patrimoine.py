@@ -46,8 +46,7 @@ class InvalidFileSizeError(ValidationError):
 
 
 class IPatrimoine(model.Schema):
-    """ Marker interface for Patrimoine
-    """
+    """Marker interface for Patrimoine"""
 
     # model.load("patrimoine.xml")
 
@@ -94,7 +93,8 @@ class IPatrimoine(model.Schema):
     # form.widget(illustre=RadioFieldWidget)
 
     fieldset(
-        "Carte postale", fields=["nom_de_rue", "couleur"],
+        "Carte postale",
+        fields=["nom_de_rue", "couleur"],
     )
     nom_de_rue = schema.TextLine(title=(u"Nom de rue"), required=False)
     couleur = schema.Choice(
@@ -413,16 +413,15 @@ class DateValidator(SimpleFieldValidator):
 
 @implementer(IPatrimoine)
 class Patrimoine(Container):
-    """
-    """
+    """ """
 
 
 class PatrimoineView(view.DefaultView):
-    """
-    """
+    """ """
 
     def is_TextTitleWidget(self, current_widget):
         from library.core.widget.title import TextTitleWidget
+
         return isinstance(current_widget, TextTitleWidget)
 
     def is_there_any_fields_after_this_title(self, current_widget, lst_widgets):
