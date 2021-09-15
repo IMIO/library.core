@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-2.0.13 (unreleased)
+2.0.13 (2021-09-15)
 -------------------
 
 - Add an honeypot field to comment form
