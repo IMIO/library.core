@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-2.0.14 (unreleased)
+2.0.14 (2021-09-16)
 -------------------
 
 - Fix previous release
