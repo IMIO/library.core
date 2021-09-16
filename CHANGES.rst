@@ -5,7 +5,8 @@ Changelog
 2.0.14 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- Fix previous release
+  [boulch]
 
 
 2.0.13 (2021-09-15)
