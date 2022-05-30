@@ -6,11 +6,13 @@
 library.core
 ============
 
-.. image:: https://travis-ci.com/IMIO/library.core.svg?branch=master
-    :target: https://travis-ci.com/IMIO/library.core
+.. image:: https://github.com/IMIO/library.core/workflows/Tests/badge.svg
+    :target: https://github.com/IMIO/library.core/actions?query=workflow%3ATests
+    :alt: CI Status
 
 .. image:: https://coveralls.io/repos/github/IMIO/library.core/badge.svg?branch=master
     :target: https://coveralls.io/github/IMIO/library.core?branch=master
+    :alt: Coveralls
 
 
 This product has main source code for bibliotheca instances.
