@@ -47,7 +47,7 @@ class TextDateConverter(BaseDataConverter):
 
     def toWidgetValue(self, value):
         if value is self.field.missing_value:
-            return u""
+            return ""
 
         if type(value) == date:
             return "{v.day:02d}/{v.month:02d}/{v.year}".format(v=value)
@@ -55,7 +55,7 @@ class TextDateConverter(BaseDataConverter):
             return value
 
     def toFieldValue(self, value):
-        if value == u"":
+        if value == "":
             return self.field.missing_value
 
         stripped = value.strip()
@@ -64,10 +64,10 @@ class TextDateConverter(BaseDataConverter):
                 try:
                     datetime.strptime(stripped, datetime_format)
                 except ValueError:
-                    raise FormatterValidationError(u"Date invalide {0}", value)
+                    raise FormatterValidationError("Date invalide {0}", value)
                 else:
                     return stripped
         raise FormatterValidationError(
-            u"Format d'encodage non reconnu (jour/mois/année, mois/année ou année)",
+            "Format d'encodage non reconnu (jour/mois/année, mois/année ou année)",
             value,
         )

@@ -32,7 +32,6 @@ class TestSetup(unittest.TestCase):
 
 
 class TestUninstall(unittest.TestCase):
-
     layer = LIBRARY_CORE_INTEGRATION_TESTING
 
     def setUp(self):

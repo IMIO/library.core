@@ -50,21 +50,21 @@ class IPatrimoine(model.Schema):
 
     # model.load("patrimoine.xml")
 
-    numero_inventaire = schema.TextLine(title=(u"Numéro d'inventaire"), required=False)
-    informations = RichText(title=(u"Informations"), required=False)
+    numero_inventaire = schema.TextLine(title=("Numéro d'inventaire"), required=False)
+    informations = RichText(title=("Informations"), required=False)
 
     contenus_lies = RelationList(
-        title=u"Contenus liés",
+        title="Contenus liés",
         default=[],
         value_type=RelationChoice(
-            title=(u"Relation Choice"),
+            title=("Relation Choice"),
             source=CatalogSource(portal_type=("Folder", "patrimoine")),
         ),
         required=False,
     )
 
     fichier_pdf = namedfile.NamedBlobFile(
-        title=(u"Fichier PDF"), required=False, constraint=fileSize
+        title=("Fichier PDF"), required=False, constraint=fileSize
     )
 
     fieldset(
@@ -79,26 +79,26 @@ class IPatrimoine(model.Schema):
             "illustre",
         ],
     )
-    auteur = schema.TextLine(title=(u"Auteur"), required=False)
-    lieu = schema.TextLine(title=(u"Lieu"), required=False)
-    editeur = schema.TextLine(title=(u"Éditeur"), required=False)
+    auteur = schema.TextLine(title=("Auteur"), required=False)
+    lieu = schema.TextLine(title=("Lieu"), required=False)
+    editeur = schema.TextLine(title=("Éditeur"), required=False)
 
     form.widget("date", TextDateFieldWidget)
-    date = schema.TextLine(title=(u"Date"), required=False)
+    date = schema.TextLine(title=("Date"), required=False)
 
-    nombre_de_pages = schema.TextLine(title=(u"Nombre de pages"), required=False)
-    format_1 = schema.TextLine(title=(u"Format"), required=False)
+    nombre_de_pages = schema.TextLine(title=("Nombre de pages"), required=False)
+    format_1 = schema.TextLine(title=("Format"), required=False)
 
-    illustre = schema.Bool(title=(u"Illustré"), required=False)
+    illustre = schema.Bool(title=("Illustré"), required=False)
     # form.widget(illustre=RadioFieldWidget)
 
     fieldset(
         "Carte postale",
         fields=["nom_de_rue", "couleur"],
     )
-    nom_de_rue = schema.TextLine(title=(u"Nom de rue"), required=False)
+    nom_de_rue = schema.TextLine(title=("Nom de rue"), required=False)
     couleur = schema.Choice(
-        title=(u"Couleur"),
+        title=("Couleur"),
         required=False,
         vocabulary="library.core.vocabularies.colors_vocabulary",
     )
@@ -125,56 +125,56 @@ class IPatrimoine(model.Schema):
         ],
     )
 
-    nom_prenom_1 = schema.TextLine(title=(u"Nom prénom 1"), required=False)
-    nom_du_conjoint_1 = schema.TextLine(title=(u"Nom du conjoint 1"), required=False)
+    nom_prenom_1 = schema.TextLine(title=("Nom prénom 1"), required=False)
+    nom_du_conjoint_1 = schema.TextLine(title=("Nom du conjoint 1"), required=False)
     evenement_date_1 = schema.Choice(
-        title=(u"Evénement lié à la date 1"),
+        title=("Evénement lié à la date 1"),
         required=False,
         vocabulary="library.core.vocabularies.eventsdate_vocabulary",
     )
     date_evenement_1 = schema.TextLine(
-        title=(u"Date événement 1"), description="(jj/mm/aaaa)", required=False
+        title=("Date événement 1"), description="(jj/mm/aaaa)", required=False
     )
 
-    nom_prenom_2 = schema.TextLine(title=(u"Nom prénom 2"), required=False)
-    nom_du_conjoint_2 = schema.TextLine(title=(u"Nom du conjoint 2"), required=False)
+    nom_prenom_2 = schema.TextLine(title=("Nom prénom 2"), required=False)
+    nom_du_conjoint_2 = schema.TextLine(title=("Nom du conjoint 2"), required=False)
     evenement_date_2 = schema.Choice(
-        title=(u"Evénement lié à la date 2"),
+        title=("Evénement lié à la date 2"),
         required=False,
         vocabulary="library.core.vocabularies.eventsdate_vocabulary",
     )
     date_evenement_2 = schema.TextLine(
-        title=(u"Date événement 2"), description="(jj/mm/aaaa)", required=False
+        title=("Date événement 2"), description="(jj/mm/aaaa)", required=False
     )
 
-    nom_prenom_3 = schema.TextLine(title=(u"Nom prénom 3"), required=False)
-    nom_du_conjoint_3 = schema.TextLine(title=(u"Nom du conjoint 3"), required=False)
+    nom_prenom_3 = schema.TextLine(title=("Nom prénom 3"), required=False)
+    nom_du_conjoint_3 = schema.TextLine(title=("Nom du conjoint 3"), required=False)
     evenement_date_3 = schema.Choice(
-        title=(u"Evénement lié à la date 3"),
+        title=("Evénement lié à la date 3"),
         required=False,
         vocabulary="library.core.vocabularies.eventsdate_vocabulary",
     )
     date_evenement_3 = schema.TextLine(
-        title=(u"Date événement 3"), description="(jj/mm/aaaa)", required=False
+        title=("Date événement 3"), description="(jj/mm/aaaa)", required=False
     )
 
-    nom_prenom_4 = schema.TextLine(title=(u"Nom prénom 4"), required=False)
-    nom_du_conjoint_4 = schema.TextLine(title=(u"Nom du conjoint 4"), required=False)
+    nom_prenom_4 = schema.TextLine(title=("Nom prénom 4"), required=False)
+    nom_du_conjoint_4 = schema.TextLine(title=("Nom du conjoint 4"), required=False)
     evenement_date_4 = schema.Choice(
-        title=(u"Evénement lié à la date 4"),
+        title=("Evénement lié à la date 4"),
         required=False,
         vocabulary="library.core.vocabularies.eventsdate_vocabulary",
     )
     date_evenement_4 = schema.TextLine(
-        title=(u"Date événement 4"), description="(jj/mm/aaaa)", required=False
+        title=("Date événement 4"), description="(jj/mm/aaaa)", required=False
     )
 
     fieldset("Média", fields=["auteur_du_media", "duree", "couleur_du_media"])
 
-    auteur_du_media = schema.TextLine(title=(u"Auteur du média"), required=False)
-    duree = schema.TextLine(title=(u"Durée"), required=False)
+    auteur_du_media = schema.TextLine(title=("Auteur du média"), required=False)
+    duree = schema.TextLine(title=("Durée"), required=False)
     couleur_du_media = schema.Choice(
-        title=(u"Couleur du média"),
+        title=("Couleur du média"),
         required=False,
         vocabulary="library.core.vocabularies.colors_vocabulary",
     )
@@ -223,34 +223,34 @@ class IPatrimoine(model.Schema):
     # 1. Identification de l'élément
     form.widget("group_identification", TextTitleFieldWidget)
     group_identification = schema.TextLine(
-        title=(u"Identification de l’élément"), required=False
+        title=("Identification de l’élément"), required=False
     )
-    nature_du_bien = schema.TextLine(title=(u"Nature du bien"), required=False)
-    lieu_dit = schema.TextLine(title=(u"Lieu dit"), required=False)
+    nature_du_bien = schema.TextLine(title=("Nature du bien"), required=False)
+    lieu_dit = schema.TextLine(title=("Lieu dit"), required=False)
     appellation_courante = schema.TextLine(
-        title=(u"Appellation courante"), required=False
+        title=("Appellation courante"), required=False
     )
     form.widget("primary_category", TextTitleFieldWidget)
     primary_category = schema.TextLine(
-        title=(u"Catégorie principale"),
+        title=("Catégorie principale"),
         description=(
-            u'La catégorie principale est renseignée sous l\'onglet "Catégorisation"'
+            'La catégorie principale est renseignée sous l\'onglet "Catégorisation"'
         ),
         required=False,
     )
     form.widget("secondary_category", TextTitleFieldWidget)
     secondary_category = schema.TextLine(
-        title=(u"Catégorie secondaire"),
+        title=("Catégorie secondaire"),
         description=(
-            u'La catégorie secondaire est renseignée sous l\'onglet "Catégorisation"'
+            'La catégorie secondaire est renseignée sous l\'onglet "Catégorisation"'
         ),
         required=False,
     )
-    autre = schema.Text(title=(u"Autre..."), required=False)
+    autre = schema.Text(title=("Autre..."), required=False)
     # 2. Localisation de l'élément
     form.widget("group_localisation", TextTitleFieldWidget)
     group_localisation = schema.TextLine(
-        title=(u"Localisation de l’élément"), required=False
+        title=("Localisation de l’élément"), required=False
     )
 
     provinces = schema.Choice(
@@ -260,7 +260,7 @@ class IPatrimoine(model.Schema):
         default=None,
     )
     municipal_entity = schema.Choice(
-        title=(u"Entité"),
+        title=("Entité"),
         required=False,
         vocabulary="library.core.vocabularies.municipalentities_vocabulary",
         default=None,
@@ -269,13 +269,13 @@ class IPatrimoine(model.Schema):
     # 3. Données relatives au propriétaire
     form.widget("group_owner", TextTitleFieldWidget)
     group_owner = schema.TextLine(
-        title=(u"Données relatives au propriétaire"), required=False
+        title=("Données relatives au propriétaire"), required=False
     )
 
     form.read_permission(owner_datas="cmf.ModifyPortalContent")
     form.widget("owner_datas", RadioFieldWidget)
     owner_datas = schema.Choice(
-        title=(u"Type de propriété"),
+        title=("Type de propriété"),
         required=False,
         values=["Privé", "Publique", "Statut inconnu"],
         default=None,
@@ -283,39 +283,39 @@ class IPatrimoine(model.Schema):
 
     form.read_permission(owner_name="cmf.ModifyPortalContent")
     owner_name = schema.TextLine(
-        title=(u"Nom-Prénom / Nom de l’organisme"), required=False
+        title=("Nom-Prénom / Nom de l’organisme"), required=False
     )
 
     form.read_permission(owner_address="cmf.ModifyPortalContent")
-    owner_address = schema.TextLine(title=(u"Adresse"), required=False)
+    owner_address = schema.TextLine(title=("Adresse"), required=False)
 
     form.read_permission(owner_zip_code="cmf.ModifyPortalContent")
-    owner_zip_code = schema.TextLine(title=(u"Code postal"), required=False)
+    owner_zip_code = schema.TextLine(title=("Code postal"), required=False)
 
     form.read_permission(owner_entity="cmf.ModifyPortalContent")
-    owner_entity = schema.TextLine(title=(u"Entité/Commune"), required=False)
+    owner_entity = schema.TextLine(title=("Entité/Commune"), required=False)
 
     form.read_permission(owner_email="cmf.ModifyPortalContent")
-    owner_email = schema.TextLine(title=(u"Adresse e-mail"), required=False)
+    owner_email = schema.TextLine(title=("Adresse e-mail"), required=False)
 
     form.read_permission(owner_phone="cmf.ModifyPortalContent")
-    owner_phone = schema.TextLine(title=(u"Téléphone / Gsm"), required=False)
+    owner_phone = schema.TextLine(title=("Téléphone / Gsm"), required=False)
 
     # 4. Statut de l’élément
     form.widget("group_item_status", TextTitleFieldWidget)
-    group_item_status = schema.TextLine(title=(u"Statut de l’élément"), required=False)
+    group_item_status = schema.TextLine(title=("Statut de l’élément"), required=False)
 
     form.widget(item_status=MultiSelect2FieldWidget)
     item_status = schema.List(
-        title=(u"Statuts"),
+        title=("Statuts"),
         value_type=schema.Choice(
-            title=(u"District(s) concerned"),
+            title=("District(s) concerned"),
             values=[
-                u"Monument",
-                u"Site",
-                u"Ensemble architectural",
-                u"Zone de protection",
-                safe_unicode(u"IPIC (repris à l'inventaire régional)"),
+                "Monument",
+                "Site",
+                "Ensemble architectural",
+                "Zone de protection",
+                safe_unicode("IPIC (repris à l'inventaire régional)"),
             ],
         ),
         required=False,
@@ -325,66 +325,61 @@ class IPatrimoine(model.Schema):
 
     form.widget("group_item_description", TextTitleFieldWidget)
     group_item_description = schema.TextLine(
-        title=(u"Description de l’élément"), required=False
+        title=("Description de l’élément"), required=False
     )
-    descriptif = schema.Text(title=(u"Descriptif"), required=False)
-    dimensions = schema.TextLine(title=(u"Dimensions"), required=False)
-    materiaux = schema.TextLine(title=(u"Matériaux"), required=False)
+    descriptif = schema.Text(title=("Descriptif"), required=False)
+    dimensions = schema.TextLine(title=("Dimensions"), required=False)
+    materiaux = schema.TextLine(title=("Matériaux"), required=False)
     inscription_datation = schema.Text(
-        title=(u"Inscription(s) - Datation"), required=False
+        title=("Inscription(s) - Datation"), required=False
     )
     urban_context = schema.Text(
-        title=(u"Contexte urbanistique et abords"), required=False
+        title=("Contexte urbanistique et abords"), required=False
     )
     form.widget("public_visibility", RadioFieldWidget)
     public_visibility = schema.Bool(
-        title=(u"Visibilité depuis le domaine public"), required=False
+        title=("Visibilité depuis le domaine public"), required=False
     )
     form.widget("direct_reachability", RadioFieldWidget)
-    direct_reachability = schema.Bool(title=(u"Accessibilité directe"), required=False)
+    direct_reachability = schema.Bool(title=("Accessibilité directe"), required=False)
 
     # 6. Etat de conservation de l’élément
 
     form.widget("group_item_conservation", TextTitleFieldWidget)
     group_item_conservation = schema.TextLine(
-        title=(u"Etat de conservation de l’élément"), required=False
+        title=("Etat de conservation de l’élément"), required=False
     )
 
     # quid id=etat.
     form.widget("owner_datas", RadioFieldWidget)
     item_state = schema.Choice(
-        title=(u"Etat général de l’élément"),
+        title=("Etat général de l’élément"),
         required=False,
         values=["Bon", "Moyen", "Mauvais"],
         default=None,
     )
-    noted_degradation = schema.Text(title=(u"Dégradation constatée"), required=False)
+    noted_degradation = schema.Text(title=("Dégradation constatée"), required=False)
     form.widget("reallocation_project", RadioFieldWidget)
     reallocation_project = schema.Bool(
-        title=(u"Projet de conservation/ Réaffectation en cours"), required=False
+        title=("Projet de conservation/ Réaffectation en cours"), required=False
     )
 
     # 7. Historique/Anecdotes
     form.widget("group_item_history", TextTitleFieldWidget)
-    group_item_history = schema.TextLine(
-        title=(u"Historique/Anecdotes"), required=False
-    )
+    group_item_history = schema.TextLine(title=("Historique/Anecdotes"), required=False)
     fonction_passee_et_actuelle = schema.Text(
-        title=(u"Fonction(s) passée(s) et actuelle(s)"), required=False
+        title=("Fonction(s) passée(s) et actuelle(s)"), required=False
     )
 
     # 8. Remarques
     form.widget("group_item_notes_and_comments", TextTitleFieldWidget)
-    group_item_notes_and_comments = schema.TextLine(
-        title=(u"Remarques"), required=False
-    )
+    group_item_notes_and_comments = schema.TextLine(title=("Remarques"), required=False)
     remarques_commentaires = schema.Text(
-        title=(u"Remarques et commentaires"), required=False
+        title=("Remarques et commentaires"), required=False
     )
 
 
 class DateValidator(SimpleFieldValidator):
-
     regex_formats = {
         "\d{8}$": "%d%m%Y",
         "\d{6}$": "%m%Y",
@@ -405,9 +400,9 @@ class DateValidator(SimpleFieldValidator):
                         datetime.strptime(stripped, datetime_format).date()
                         return True
                     except ValueError:
-                        raise Invalid(u"Date invalide")
+                        raise Invalid("Date invalide")
             raise Invalid(
-                u"Format d'encodage non reconnu (jour/mois/année, mois/année ou année)"
+                "Format d'encodage non reconnu (jour/mois/année, mois/année ou année)"
             )
 
 
