@@ -5,7 +5,9 @@ Changelog
 2.0.15 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- MBIBLIHAVA-3 : Fix "Impossible to add/save existing content tile" (view_template field : required must be False)
+  issue : https://github.com/plone/plone.app.standardtiles/issues/149
+  [boulch]
 
 
 2.0.14 (2021-09-16)
