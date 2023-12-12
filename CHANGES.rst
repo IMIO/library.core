@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-2.0.15 (unreleased)
+2.0.15 (2023-12-12)
 -------------------
 
 - MBIBLIHAVA-3 : Fix "Impossible to add/save existing content tile" (view_template field : required must be False)
