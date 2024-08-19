@@ -12,6 +12,8 @@
     Better import explicite packages or configurations ;)
   -->
   <!--<includeDependencies package="." />-->
+  <include package="z3c.unconfigure" file="meta.zcml" />
+  <include package="collective.faceted.map" />
 
   <include package=".browser" />
   <include package=".widget" />

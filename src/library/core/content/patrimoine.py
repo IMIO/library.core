@@ -1,13 +1,14 @@
 # -*- coding: utf-8 -*-
 
+from collections import OrderedDict
 from collective.taxonomy.interfaces import ITaxonomy
-from collective.z3cform.select2.widget.widget import MultiSelect2FieldWidget
 from datetime import datetime
 from library.core.widget.textdate import TextDateFieldWidget
 from library.core.widget.title import TextTitleFieldWidget
 from plone.app.textfield import RichText
 from plone.app.textfield.value import IRichTextValue
 from plone.app.vocabularies.catalog import CatalogSource
+from plone.app.z3cform.widget import AjaxSelectFieldWidget
 from plone.autoform import directives as form
 from plone.dexterity.browser import view
 from plone.dexterity.content import Container
@@ -305,7 +306,7 @@ class IPatrimoine(model.Schema):
     form.widget("group_item_status", TextTitleFieldWidget)
     group_item_status = schema.TextLine(title=("Statut de l’élément"), required=False)
 
-    form.widget(item_status=MultiSelect2FieldWidget)
+    form.widget(item_status=AjaxSelectFieldWidget)
     item_status = schema.List(
         title=("Statuts"),
         value_type=schema.Choice(
@@ -420,8 +421,10 @@ class PatrimoineView(view.DefaultView):
         return isinstance(current_widget, TextTitleWidget)
 
     def is_there_any_fields_after_this_title(self, current_widget, lst_widgets):
+        if isinstance(lst_widgets, type(OrderedDict().values())):
+            lst_widgets = list(lst_widgets)
         current_index = lst_widgets.index(current_widget)
-        if (current_index + 1) < len(lst_widgets) and len(
+        if (current_index + 1) < len(lst_widgets) and lst_widgets[current_index + 1].value is not None and len(
             lst_widgets[current_index + 1].value
         ) > 0:
             return True
