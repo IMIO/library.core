@@ -16,11 +16,14 @@ from plone.app.discussion.interfaces import IReplies
 from plone.autoform import directives
 from plone.registry.interfaces import IRegistry
 from Products.CMFCore.utils import getToolByName
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.statusmessages.interfaces import IStatusMessage
 from z3c.form import button
 from z3c.form import field
 from zope.component import queryUtility
 from zope import schema
+
+from library.core.commentextender import CommentExtenderFields
 
 
 class ICommentWithHoneyPot(IComment):
@@ -127,4 +130,16 @@ class CommentFormWithHoneyPot(CommentForm):
 
 
 class CommentsViewlet(baseCommentsViewlet):
+
+    index = ViewPageTemplateFile("comments.pt")
     form = CommentFormWithHoneyPot
+
+
+    def get_images(self, obj):
+        if obj.picture is None:
+            return ""
+        extender = CommentExtenderFields(obj)
+        test = extender.get_picture()
+        import pdb; pdb.set_trace()
+        # image_mini = images.scale(image_field_id,"mini")
+        return f"{obj.absolute_url()}/@@images/picture"

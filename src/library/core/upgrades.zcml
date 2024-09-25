@@ -12,13 +12,22 @@
     handler=".upgrades.reload_gs_profile"
     />-->
 
-    <genericsetup:upgradeStep
-      source="1001"
-      destination="1002"
-      title="Set geolocation behavior"
-      description=""
-      profile="library.core:default"
-      handler=".upgrades.geolocation_behavior"
-      />
+  <genericsetup:upgradeStep
+    source="1001"
+    destination="1002"
+    title="Set geolocation behavior"
+    description=""
+    profile="library.core:default"
+    handler=".upgrades.geolocation_behavior"
+    />
+
+  <genericsetup:upgradeStep
+    source="1002"
+    destination="1003"    
+    title="Add comment_picture index"
+    description="Adds a FieldIndex for the comment picture"
+    profile="library.core:default" 
+    handler=".upgrades.add_comment_picture_index"
+    />
 
 </configure>

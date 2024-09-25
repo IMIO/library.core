@@ -21,8 +21,9 @@
   <include package=".tiles" />
   <include package=".viewlets" />
 
+  <include file="indexers.zcml" />
   <include file="permissions.zcml" />
-
+  <include file="subscribers.zcml" />
   <include file="upgrades.zcml" />
 
   <genericsetup:registerProfile
@@ -42,6 +43,36 @@
       provides="Products.GenericSetup.interfaces.EXTENSION"
       post_handler=".setuphandlers.uninstall"
       />
+
+  <adapter
+      factory=".commentextender.CommentExtenderFactory"
+      provides=".commentextender.ICommentExtenderFields" 
+      for="plone.app.discussion.comment.Comment" />
+
+  <browser:page
+      allowed_attributes="scale tag"
+      class=".scaling.ImageScaling"
+      for=".interfaces.IImageScaleTraversable"
+      name="images"
+      permission="zope2.View" />
+  
+  <class class="plone.app.discussion.comment.Comment">
+    <implements interface="plone.namedfile.interfaces.IImageScaleTraversable" />
+  </class>
+
+  <adapter
+      factory=".commentextender.comment_image_scale_traversable"
+      for="plone.app.discussion.comment.Comment"
+      provides="plone.namedfile.interfaces.IImageScaleTraversable" />
+
+  <adapter
+      factory=".commentextender.CommentExtender"
+      provides="plone.z3cform.fieldsets.interfaces.IFormExtender" />
+
+  <!-- adapter
+      for="library.core.commentextender.ICommentExtenderFields"
+      provides="plone.namedfile.interfaces.IImageScaleTraversable"
+      factory="plone.namedfile.scaling.ImageScaling" /-->
 
   <utility
       factory=".setuphandlers.HiddenProfiles"
