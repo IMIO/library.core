@@ -49,12 +49,12 @@
       provides=".commentextender.ICommentExtenderFields" 
       for="plone.app.discussion.comment.Comment" />
 
-  <browser:page
+  <!-- browser:page
       allowed_attributes="scale tag"
       class=".scaling.ImageScaling"
       for=".interfaces.IImageScaleTraversable"
       name="images"
-      permission="zope2.View" />
+      permission="zope2.View" / -->
   
   <class class="plone.app.discussion.comment.Comment">
     <implements interface="plone.namedfile.interfaces.IImageScaleTraversable" />

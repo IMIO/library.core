@@ -47,8 +47,7 @@
                 <div class="items-content">
                   <div class="geo-item-image">
                      <img style="border: none"
-                          tal:attributes="src python:obj.absolute_url()"/>
-                    <img style="border: none" />
+                          tal:attributes="src python:self.get_images(obj)"/>
                   </div>
                   <div class="geo-item-text">
                     <div class="geo-item-title" tal:content="brain/pretty_title_or_id|string:">Title</div>

@@ -1,15 +1,20 @@
 # -*- coding: utf-8 -*-
-from collective.faceted.map.browser.view import FacetedGeoJSON as BaseFacetedGeoJSON
 from collective.faceted.map.browser.map import MapView
 from plone.api.portal import get_registry_record
-from Products.Five import BrowserView
 
 import json
 
 
-# FolderView
 class FacetedMapView(MapView):
     """Faceted map view"""
+
+    def get_images(self, obj):
+        if obj.image is None:
+            return ""
+        image_field_id = "image"
+        images = obj.restrictedTraverse('@@images')
+        image_mini = images.scale(image_field_id,"mini")
+        return image_mini.url
 
     def map_configuration(self):
         """Returns global map configuration from registry"""
@@ -31,27 +36,3 @@ class FacetedMapView(MapView):
             "longitude": get_registry_record("geolocation.default_longitude"),
         }
         return json.dumps(config)
-
-
-class FacetedGeoJSONPopup(BrowserView):
-    def popup(self, brain):
-        url = brain.getURL()
-        title = brain.Title
-        description = brain.Description
-        orientation = self.context.orientation
-        # if brain.has_leadimage:
-        #     img_url = get_scale_url(brain, self.request, "image", "liste", orientation)
-        #     return f"""<a href="{url}" title="{title}">
-        #                  <img src="{img_url}" alt="{title}" />
-        #                  <div>
-        #                    <span class="popup_title">{title}</span>
-        #                    <span class="popup_description">{description}</span>
-        #                  </div>
-        #                </a>"""
-        # else:
-        return f"""<a href="{url}" title="{title}">
-                        <div>
-                        <span class="popup_title">{title}</span>
-                        <span class="popup_description">{description}</span>
-                        </div>
-                    </a>"""
