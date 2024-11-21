@@ -75,7 +75,7 @@
         }};
 
         jQuery(document).ready(function($) {
-          $("#faceted-map-container").insertAfter($("#faceted-results"));
+          $("#faceted-map-container").insertAfter($("#faceted-results-items"));
           $(Faceted.Events).bind(Faceted.Events.AJAX_QUERY_SUCCESS, function() {
               refresh_map();
           });
