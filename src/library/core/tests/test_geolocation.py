@@ -10,7 +10,6 @@ import unittest
 
 
 class TestGeolocation(unittest.TestCase):
-
     layer = LIBRARY_CORE_INTEGRATION_TESTING
 
     def setUp(self):

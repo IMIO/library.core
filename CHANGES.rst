@@ -5,7 +5,8 @@ Changelog
 2.0.16 (unreleased)
 -------------------
 
-- Nothing changed yet.
+- BIBLI-73 : Update to Plone6 (6.0.9)
+  [boulch]
 
 
 2.0.15 (2023-12-12)

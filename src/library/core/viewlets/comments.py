@@ -16,20 +16,21 @@ from plone.app.discussion.interfaces import IReplies
 from plone.autoform import directives
 from plone.registry.interfaces import IRegistry
 from Products.CMFCore.utils import getToolByName
+from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from Products.statusmessages.interfaces import IStatusMessage
 from z3c.form import button
 from z3c.form import field
 from zope.component import queryUtility
 from zope import schema
 
+from library.core.commentextender import CommentExtenderFields
+
 
 class ICommentWithHoneyPot(IComment):
-
-    honeypot = schema.TextLine(title=(u"Signature"), required=False)
+    honeypot = schema.TextLine(title=("Signature"), required=False)
 
 
 class CommentFormWithHoneyPot(CommentForm):
-
     fields = field.Fields(ICommentWithHoneyPot).omit(
         "portal_type",
         "__parent__",
@@ -49,17 +50,15 @@ class CommentFormWithHoneyPot(CommentForm):
 
     def updateWidgets(self):
         super(CommentFormWithHoneyPot, self).updateWidgets()
-        self.widgets["honeypot"].label = u""
+        self.widgets["honeypot"].label = ""
 
-    @button.buttonAndHandler(_(u"Cancel"))
+    @button.buttonAndHandler(_("Cancel"))
     def handleCancel(self, action):
         # This method should never be called, it's only there to show
         # a cancel button that is handled by a jQuery method.
         pass  # pragma: no cover
 
-    @button.buttonAndHandler(
-        _(u"add_comment_button", default=u"Comment"), name="comment"
-    )
+    @button.buttonAndHandler(_("add_comment_button", default="Comment"), name="comment")
     def handleComment(self, action):
         if self.request.form["form.widgets.honeypot"]:
             return
@@ -87,7 +86,7 @@ class CommentFormWithHoneyPot(CommentForm):
         anon = portal_membership.isAnonymousUser()
         if captcha_enabled and anonymous_comments and anon:
             if "captcha" not in data:
-                data["captcha"] = u""
+                data["captcha"] = ""
             captcha = CaptchaValidator(
                 self.context, self.request, None, ICaptcha["captcha"], None
             )
@@ -131,4 +130,16 @@ class CommentFormWithHoneyPot(CommentForm):
 
 
 class CommentsViewlet(baseCommentsViewlet):
+
+    index = ViewPageTemplateFile("comments.pt")
     form = CommentFormWithHoneyPot
+
+
+    def get_images(self, obj):
+        if obj.picture is None:
+            return ""
+        extender = CommentExtenderFields(obj)
+        test = extender.get_picture()
+        import pdb; pdb.set_trace()
+        # image_mini = images.scale(image_field_id,"mini")
+        return f"{obj.absolute_url()}/@@images/picture"

@@ -12,7 +12,6 @@ import unittest
 
 
 class TestPatrimoine(unittest.TestCase):
-
     layer = LIBRARY_CORE_INTEGRATION_TESTING
 
     def setUp(self):
@@ -28,13 +27,13 @@ class TestPatrimoine(unittest.TestCase):
         file = NamedFile()
         file.data = "0" * 30000000
         self.patrimoine.fichier_pdf = NamedBlobFile(
-            data=file.data, filename=u"bigfile.pdf"
+            data=file.data, filename="bigfile.pdf"
         )
         self.assertTrue(fileSize(self.patrimoine.fichier_pdf))
         file = NamedFile()
         file.data = "0" * 30000001
         self.patrimoine.fichier_pdf = NamedBlobFile(
-            data=file.data, filename=u"bigfile.pdf"
+            data=file.data, filename="bigfile.pdf"
         )
         with self.assertRaises(InvalidFileSizeError):
             self.assertRaises(

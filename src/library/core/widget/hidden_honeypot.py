@@ -12,7 +12,6 @@ class IHiddenHoneyPotWidget(ITextWidget):
 
 @implementer(IHiddenHoneyPotWidget)
 class HiddenHoneyPotWidget(TextWidget):
-
     style = "display:none"
 
     def title_renderer(self):

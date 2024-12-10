@@ -11,6 +11,8 @@
       layer="library.core.interfaces.ILibraryCoreLayer"
       />
 
+  <include package=".faceted" />
+
   <!-- Publish static files -->
   <plone:static
       name="library.core"
