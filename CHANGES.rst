@@ -5,7 +5,8 @@ Changelog
 2.1.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- BIBLI-73 : Add monkeypatch to fix TTW resource calling
+  [boulch]
 
 
 2.1.0 (2024-12-11)
