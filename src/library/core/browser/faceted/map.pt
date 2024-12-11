@@ -75,10 +75,13 @@
         }};
 
         jQuery(document).ready(function($) {
-          $("#faceted-map-container").insertAfter($("#faceted-results-items"));
+          $("#faceted-map-container").insertBefore($("#faceted-results-items"));
+
           $(Faceted.Events).bind(Faceted.Events.AJAX_QUERY_SUCCESS, function() {
               refresh_map();
           });
+
+          $(".button-map-content").insertBefore($("#faceted-map-container"));
 
           refresh_map();
 
