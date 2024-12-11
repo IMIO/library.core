@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-2.1.1 (unreleased)
+2.1.1 (2024-12-11)
 ------------------
 
 - BIBLI-73 : Add monkeypatch to fix TTW resource calling
