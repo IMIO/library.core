@@ -5,7 +5,8 @@ Changelog
 2.1.2 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- BIBLI-73 : Fix js for map
+  [boulch, tlambert, laulaz]
 
 
 2.1.1 (2024-12-11)
