@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-2.1.2 (unreleased)
+2.1.2 (2024-12-12)
 ------------------
 
 - BIBLI-73 : Fix js for map
