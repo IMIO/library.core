@@ -5,8 +5,8 @@ Changelog
 2.1.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
+- Remove picture from comments. That don't work!
+  [boulch]
 
 2.1.2 (2024-12-12)
 ------------------

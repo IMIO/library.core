@@ -140,6 +140,6 @@ class CommentsViewlet(baseCommentsViewlet):
             return ""
         extender = CommentExtenderFields(obj)
         test = extender.get_picture()
-        import pdb; pdb.set_trace()
+        # import pdb; pdb.set_trace()
         # image_mini = images.scale(image_field_id,"mini")
         return f"{obj.absolute_url()}/@@images/picture"

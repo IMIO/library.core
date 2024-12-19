@@ -45,7 +45,7 @@ class CommentExtenderFields(Persistent):
         self.picture = value
 
     def get_picture(self):
-        import pdb;pdb.set_trace()
+        # import pdb;pdb.set_trace()
         return self.picture
 
 
@@ -94,6 +94,5 @@ class CommentExtender(extensible.FormExtender):
 @adapter(Comment, IImageScaleTraversable)
 @implementer(IImageScaleTraversable)
 def comment_image_scale_traversable(obj):
-    import pdb;pdb.set_trace()
     # Cela permet de récupérer l'image pour l'URL @@images/comment_picture
     return obj

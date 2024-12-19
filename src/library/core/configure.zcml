@@ -44,10 +44,10 @@
       post_handler=".setuphandlers.uninstall"
       />
 
-  <adapter
+  <!--adapter
       factory=".commentextender.CommentExtenderFactory"
       provides=".commentextender.ICommentExtenderFields" 
-      for="plone.app.discussion.comment.Comment" />
+      for="plone.app.discussion.comment.Comment" /-->
 
   <!-- browser:page
       allowed_attributes="scale tag"
@@ -55,7 +55,7 @@
       for=".interfaces.IImageScaleTraversable"
       name="images"
       permission="zope2.View" / -->
-  
+  <!--
   <class class="plone.app.discussion.comment.Comment">
     <implements interface="plone.namedfile.interfaces.IImageScaleTraversable" />
   </class>
@@ -68,7 +68,7 @@
   <adapter
       factory=".commentextender.CommentExtender"
       provides="plone.z3cform.fieldsets.interfaces.IFormExtender" />
-
+  -->
   <!-- adapter
       for="library.core.commentextender.ICommentExtenderFields"
       provides="plone.namedfile.interfaces.IImageScaleTraversable"

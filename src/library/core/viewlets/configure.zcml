@@ -3,7 +3,7 @@
     xmlns:browser="http://namespaces.zope.org/browser">
 
   <!-- Comments viewlet -->
-    <browser:viewlet
+    <!-- browser:viewlet
         name="plone.comments"
         for="Products.CMFCore.interfaces.IContentish"
         layer="..interfaces.ILibraryCoreLayer"
@@ -11,6 +11,6 @@
         view="plone.app.layout.globals.interfaces.IViewView"
         class=".comments.CommentsViewlet"
         permission="zope2.View"
-        />
+        /-->
 
 </configure>
