@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-2.1.3 (unreleased)
+2.1.3 (2024-12-19)
 ------------------
 
 - Remove picture from comments. That don't work!
