@@ -424,9 +424,11 @@ class PatrimoineView(view.DefaultView):
         if isinstance(lst_widgets, type(OrderedDict().values())):
             lst_widgets = list(lst_widgets)
         current_index = lst_widgets.index(current_widget)
-        if (current_index + 1) < len(lst_widgets) and lst_widgets[current_index + 1].value is not None and len(
-            lst_widgets[current_index + 1].value
-        ) > 0:
+        if (
+            (current_index + 1) < len(lst_widgets)
+            and lst_widgets[current_index + 1].value is not None
+            and len(lst_widgets[current_index + 1].value) > 0
+        ):
             return True
         else:
             return False
@@ -437,11 +439,16 @@ class PatrimoineView(view.DefaultView):
                 False
                 if set(
                     [
-                        widget.value
-                        if not isinstance(widget.value, list)
-                        else widget.value[0]
-                        if widget.value != [] and widget.value[0] != "unselected"
-                        else ""
+                        (
+                            widget.value
+                            if not isinstance(widget.value, list)
+                            else (
+                                widget.value[0]
+                                if widget.value != []
+                                and widget.value[0] != "unselected"
+                                else ""
+                            )
+                        )
                         for widget in lst_widgets
                     ]
                 )

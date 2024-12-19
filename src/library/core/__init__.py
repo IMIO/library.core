@@ -12,6 +12,7 @@ from zope.i18nmessageid import MessageFactory
 
 _ = MessageFactory("library.core")
 
+
 def patched_get_resource(context, path):
     """
     Avoid errors with TTW theme resources
@@ -61,6 +62,7 @@ def patched_get_resource(context, path):
                 result = resource.data.data
     context.REQUEST.response = response_before
     return result
+
 
 utils.get_resource = patched_get_resource
 webresource.get_resource = patched_get_resource

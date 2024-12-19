@@ -12,8 +12,8 @@ class FacetedMapView(MapView):
         if getattr(obj, "image", None) is None:
             return ""
         image_field_id = "image"
-        images = obj.restrictedTraverse('@@images')
-        image_mini = images.scale(image_field_id,"mini")
+        images = obj.restrictedTraverse("@@images")
+        image_mini = images.scale(image_field_id, "mini")
         return image_mini.url
 
     def map_configuration(self):
@@ -28,10 +28,7 @@ class FacetedMapView(MapView):
             "geosearch": get_registry_record("geolocation.show_geosearch"),
             "geosearch_provider": get_registry_record("geolocation.geosearch_provider"),
             "default_map_layer": get_registry_record("geolocation.default_map_layer"),
-            "map_layers": [
-                {"title": "Titre", "id": layer}
-                for layer in map_layers
-            ],
+            "map_layers": [{"title": "Titre", "id": layer} for layer in map_layers],
             "latitude": get_registry_record("geolocation.default_latitude"),
             "longitude": get_registry_record("geolocation.default_longitude"),
         }

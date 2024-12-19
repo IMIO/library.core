@@ -134,7 +134,6 @@ class CommentsViewlet(baseCommentsViewlet):
     index = ViewPageTemplateFile("comments.pt")
     form = CommentFormWithHoneyPot
 
-
     def get_images(self, obj):
         if obj.picture is None:
             return ""

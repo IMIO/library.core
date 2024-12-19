@@ -17,10 +17,8 @@ from zope.interface import Interface
 from zope.annotation.interfaces import IAnnotations
 
 
-
 class ICommentExtenderFields(Interface):
-    """Marker interface for comments.
-    """
+    """Marker interface for comments."""
 
     picture = NamedBlobImage(
         title=_("Picture"),
@@ -33,7 +31,8 @@ class ICommentExtenderFields(Interface):
 @adapter(Comment)
 @implementer(ICommentExtenderFields, IImageScaleTraversable)
 class CommentExtenderFields(Persistent):
-    """" """
+    """ " """
+
     # security = ClassSecurityInfo()
     # security.declareProtected(View, 'picture')
 
@@ -67,7 +66,6 @@ class CommentExtenderFields(Persistent):
 #        annotations[self._picture_key] = value
 
 
-
 # CommentExtenderFields factory
 CommentExtenderFactory = factory(CommentExtenderFields)
 
@@ -87,7 +85,7 @@ class CommentExtender(extensible.FormExtender):
         # Add the fields defined in ICommentExtenderFields to the form.
         self.add(ICommentExtenderFields, prefix="")
         # Move the picture field to the top of the comment form.
-        self.move('picture', before='text', prefix="")
+        self.move("picture", before="text", prefix="")
         #
 
 
