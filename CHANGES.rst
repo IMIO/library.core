@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-2.1.4 (unreleased)
+2.1.4 (2025-01-14)
 ------------------
 
 - BIBLI-75 : Ignore displaying some items when rendering a "patrimoine" content
