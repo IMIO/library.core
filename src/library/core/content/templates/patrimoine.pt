@@ -10,11 +10,6 @@
 <metal:main fill-slot="content-core">
 <metal:content-core define-macro="content-core">
 
-<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css"
-/>
 <div tal:define="self nocall:context/@@view;">
   <fieldset tal:repeat="group view/groups|nothing"
             tal:attributes="id python:''.join((group.prefix, 'groups.', group.__name__)).replace('.', '-')">
