@@ -14,6 +14,7 @@
   <!--<includeDependencies package="." />-->
   <include package="z3c.unconfigure" file="meta.zcml" />
   <include package="collective.faceted.map" />
+  <include package="collective.geolocationbehavior" />
 
   <include package=".browser" />
   <include package=".widget" />

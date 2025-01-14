@@ -52,6 +52,7 @@ setup(
         "z3c.unconfigure",
         "plone.app.discussion",
         "collective.behavior.gallery",
+        "collective.geolocationbehavior",
         "collective.taxonomy",
         "collective.z3cform.select2>=3.0.0b6",
         "collective.faceted.map",
