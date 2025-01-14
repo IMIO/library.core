@@ -5,7 +5,8 @@ Changelog
 2.1.5 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- BIBLI-75 : Ignore displaying each items if not necessary to display it when rendering a "patrimoine" content
+  [boulch]
 
 
 2.1.4 (2025-01-14)
@@ -14,11 +15,13 @@ Changelog
 - BIBLI-75 : Ignore displaying some items when rendering a "patrimoine" content
   [boulch]
 
+
 2.1.3 (2024-12-19)
 ------------------
 
 - Remove picture from comments. That don't work!
   [boulch]
+
 
 2.1.2 (2024-12-12)
 ------------------

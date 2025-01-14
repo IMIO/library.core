@@ -11,6 +11,7 @@
 <metal:content-core define-macro="content-core">
 
 <div tal:define="self nocall:context/@@view;">
+
   <fieldset tal:repeat="group view/groups|nothing"
             tal:attributes="id python:''.join((group.prefix, 'groups.', group.__name__)).replace('.', '-')">
       <tal:block tal:define="widgets group/widgets/values" tal:condition="python:group.__name__ not in ('categorization','Bien et PPPW')">
@@ -20,11 +21,13 @@
           </tal:block>
       </tal:block>
   </fieldset>
+
   <!-- print field "information" -->
   <tal:widget
      tal:define="widget python:view.widgets.get('informations', None)"
      tal:condition="widget/value"
-     tal:replace="structure widget/@@ploneform-render-widget" />
+     tal:replace="structure widget/@@ploneform-render-widget" 
+  />
 
   <fieldset tal:repeat="group view/groups|nothing"
             tal:attributes="id python:''.join((group.prefix, 'groups.', group.__name__)).replace('.', '-')">
@@ -45,7 +48,8 @@
   <tal:widget
      tal:define="widget python:view.widgets.get('fichier_pdf', None)"
      tal:condition="python:view.has_pdf"
-     tal:replace="structure widget/@@ploneform-render-widget" />
+     tal:replace="structure widget/@@ploneform-render-widget" 
+  />
 
   <!-- lead image, integrated with fancybox gallery. -->
   <tal:block tal:condition="context/image"
@@ -66,11 +70,17 @@
   <fieldset tal:define="group python: view.fieldsets.get('categorization', None)"
              tal:condition="nocall:group"
             tal:attributes="id python:''.join((group.prefix, 'groups.', group.__name__)).replace('.', '-')">
-      <legend tal:content="group/label" />
+      <legend tal:content="group/label" tal:condition="python:view.is_there_any_values(group.widgets.values())" />
       <tal:block tal:repeat="widget group/widgets/values">
-          <tal:widget tal:replace="structure widget/@@ploneform-render-widget"/>
+          <tal:cond tal:condition="python:view.is_TextTitleWidget(widget)">
+              <h2 tal:condition="python:view.is_there_any_fields_after_this_title(widget, values)" tal:content="structure widget"/>
+          </tal:cond>
+          <tal:cond tal:condition="python:not view.is_TextTitleWidget(widget)">
+              <tal:widget tal:condition="widget/value" tal:replace="structure widget/@@ploneform-render-widget"/>
+          </tal:cond>
       </tal:block>
   </fieldset>
+
   <tal:block condition="view/is_geolocated">
     <tal:widget
       tal:define="widget python:view.widgets.get('IGeolocatable.geolocation', None)"
@@ -81,6 +91,7 @@
     <span tal:content="context/geolocation/latitude" /> ;
     <span tal:content="context/geolocation/longitude" />
   </tal:block>
+
 </div>
 </metal:content-core>
 </metal:main>
