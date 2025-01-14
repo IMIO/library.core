@@ -5,8 +5,8 @@ Changelog
 2.1.4 (unreleased)
 ------------------
 
-- Nothing changed yet.
-
+- BIBLI-75 : Ignore displaying some items when rendering a "patrimoine" content
+  [boulch]
 
 2.1.3 (2024-12-19)
 ------------------

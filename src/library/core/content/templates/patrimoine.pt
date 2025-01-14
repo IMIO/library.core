@@ -34,7 +34,8 @@
   <fieldset tal:repeat="group view/groups|nothing"
             tal:attributes="id python:''.join((group.prefix, 'groups.', group.__name__)).replace('.', '-')">
       <tal:block tal:condition="python:group.__name__ in ('Bien et PPPW')">
-          <legend tal:content="group/label" />
+          <legend tal:condition="python:view.is_there_any_values(group.widgets.values())"
+                  tal:content="group/label" />
           <tal:block tal:define="values group/widgets/values" tal:repeat="widget group/widgets/values">
               <tal:cond tal:condition="python:view.is_TextTitleWidget(widget)">
               <h2 tal:condition="python:view.is_there_any_fields_after_this_title(widget, values)" tal:content="structure widget"/>
@@ -48,7 +49,7 @@
 
   <tal:widget
      tal:define="widget python:view.widgets.get('fichier_pdf', None)"
-     tal:condition="widget"
+     tal:condition="python:view.has_pdf"
      tal:replace="structure widget/@@ploneform-render-widget" />
 
   <!-- lead image, integrated with fancybox gallery. -->

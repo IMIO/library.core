@@ -440,11 +440,12 @@ class PatrimoineView(view.DefaultView):
                 if set(
                     [
                         (
-                            widget.value
+                            ("" if widget.value is None else widget.value)
                             if not isinstance(widget.value, list)
                             else (
                                 widget.value[0]
                                 if widget.value != []
+                                and widget.value is not None
                                 and widget.value[0] != "unselected"
                                 else ""
                             )
@@ -460,6 +461,10 @@ class PatrimoineView(view.DefaultView):
 
     def is_geolocated(self):
         return is_geolocated(self.context)
+
+    @property
+    def has_pdf(self):
+        return self.context.fichier_pdf is not None
 
 
 @indexer(IPatrimoine)
