@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
+
+from collective.geolocationbehavior.geolocation import IGeolocatable
 from library.core.testing import LIBRARY_CORE_INTEGRATION_TESTING
-from library.core.utils import add_behavior
 from plone import api
 from plone.app.testing import setRoles
 from plone.app.testing import TEST_USER_ID
@@ -21,13 +22,12 @@ class TestGeolocation(unittest.TestCase):
         )
 
     def test_is_geolocated(self):
-        add_behavior(
-            "patrimoine", "collective.geolocationbehavior.geolocation.IGeolocatable"
-        )
         catalog = api.portal.get_tool("portal_catalog")
         brain = catalog(UID=self.patrimoine.UID())[0]
-        self.assertEqual(self.patrimoine.geolocation, None)
-        self.patrimoine.geolocation = Geolocation(latitude="55.0", longitude="5.0")
+        self.assertEqual(self.patrimoine.get("geolocation"), None)
+        IGeolocatable(self.patrimoine).geolocation = Geolocation(
+            latitude="4.5", longitude="45"
+        )
         is_geolocated = catalog.getIndexDataForRID(brain.getRID())["is_geolocated"]
         self.assertFalse(is_geolocated)
         # reindex
@@ -36,61 +36,53 @@ class TestGeolocation(unittest.TestCase):
         self.assertTrue(is_geolocated)
 
     def test_false_if_no_geolocation(self):
-        add_behavior(
-            "patrimoine", "collective.geolocationbehavior.geolocation.IGeolocatable"
-        )
         catalog = api.portal.get_tool("portal_catalog")
         brain = catalog(UID=self.patrimoine.UID())[0]
-        self.assertEqual(self.patrimoine.geolocation, None)
+        self.assertEqual(self.patrimoine.get("geolocation"), None)
         # reindex
         catalog.catalog_object(brain.getObject(), idxs=["is_geolocated"])
         is_geolocated = catalog.getIndexDataForRID(brain.getRID())["is_geolocated"]
         self.assertFalse(is_geolocated)
 
     def test_false_if_no_longitude_or_longitude_eq_0(self):
-        add_behavior(
-            "patrimoine", "collective.geolocationbehavior.geolocation.IGeolocatable"
-        )
         catalog = api.portal.get_tool("portal_catalog")
         brain = catalog(UID=self.patrimoine.UID())[0]
-        self.assertEqual(self.patrimoine.geolocation, None)
-        self.patrimoine.geolocation = Geolocation(latitude="55.0")
+        self.assertEqual(self.patrimoine.get("geolocation"), None)
+        IGeolocatable(self.patrimoine).geolocation = Geolocation(latitude="55.0")
         # reindex
         catalog.catalog_object(brain.getObject(), idxs=["is_geolocated"])
         is_geolocated = catalog.getIndexDataForRID(brain.getRID())["is_geolocated"]
         self.assertFalse(is_geolocated)
-        self.patrimoine.geolocation = Geolocation(longitude="0.0", latitude="55.0")
+        IGeolocatable(self.patrimoine).geolocation = Geolocation(
+            longitude="0.0", latitude="55.0"
+        )
         # reindex
         catalog.catalog_object(brain.getObject(), idxs=["is_geolocated"])
         is_geolocated = catalog.getIndexDataForRID(brain.getRID())["is_geolocated"]
         self.assertFalse(is_geolocated)
 
-    def test_false_if_no_latitude_or_latiude_eq_0(self):
-        add_behavior(
-            "patrimoine", "collective.geolocationbehavior.geolocation.IGeolocatable"
-        )
+    def test_false_if_no_latitude_or_latitude_eq_0(self):
         catalog = api.portal.get_tool("portal_catalog")
         brain = catalog(UID=self.patrimoine.UID())[0]
-        self.assertEqual(self.patrimoine.geolocation, None)
-        self.patrimoine.geolocation = Geolocation(longitude="5.0")
+        self.assertEqual(self.patrimoine.get("geolocation"), None)
+        IGeolocatable(self.patrimoine).geolocation = Geolocation(longitude="5.0")
         # reindex
         catalog.catalog_object(brain.getObject(), idxs=["is_geolocated"])
         is_geolocated = catalog.getIndexDataForRID(brain.getRID())["is_geolocated"]
         self.assertFalse(is_geolocated)
-        self.patrimoine.geolocation = Geolocation(longitude="5.0", latitude="0.0")
+        IGeolocatable(self.patrimoine).geolocation = Geolocation(
+            longitude="5.0", latitude="0.0"
+        )
         # reindex
         catalog.catalog_object(brain.getObject(), idxs=["is_geolocated"])
         is_geolocated = catalog.getIndexDataForRID(brain.getRID())["is_geolocated"]
         self.assertFalse(is_geolocated)
 
     def test_false_if_no_latitude_and_no_longitude(self):
-        add_behavior(
-            "patrimoine", "collective.geolocationbehavior.geolocation.IGeolocatable"
-        )
         catalog = api.portal.get_tool("portal_catalog")
         brain = catalog(UID=self.patrimoine.UID())[0]
-        self.assertEqual(self.patrimoine.geolocation, None)
-        self.patrimoine.geolocation = "Kamoulox"
+        self.assertEqual(self.patrimoine.get("geolocation"), None)
+        IGeolocatable(self.patrimoine).geolocation = "Kamoulox"
         # reindex
         catalog.catalog_object(brain.getObject(), idxs=["is_geolocated"])
         is_geolocated = catalog.getIndexDataForRID(brain.getRID())["is_geolocated"]
