@@ -421,17 +421,25 @@ class PatrimoineView(view.DefaultView):
         return isinstance(current_widget, TextTitleWidget)
 
     def is_there_any_fields_after_this_title(self, current_widget, lst_widgets):
+        # DEBUG
+        # if "Anecdotes" in current_widget.label:
+        #     import pdb; pdb.set_trace()
         if isinstance(lst_widgets, type(OrderedDict().values())):
             lst_widgets = list(lst_widgets)
         current_index = lst_widgets.index(current_widget)
         if (
             (current_index + 1) < len(lst_widgets)
-            and lst_widgets[current_index + 1].value is not None
-            and len(lst_widgets[current_index + 1].value) > 0
+            and lst_widgets[current_index].value is not None
+            or lst_widgets[current_index].value != ""
         ):
             return True
-        else:
+        elif (
+            lst_widgets[current_index + 1].value is None
+            and lst_widgets[current_index + 1].value == ""
+        ):
             return False
+        else:
+            return True
 
     def is_there_any_values(self, lst_widgets):
         if lst_widgets:
