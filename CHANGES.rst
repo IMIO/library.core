@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-2.1.6 (unreleased)
+2.1.6 (2025-06-18)
 ------------------
 
 - Fix collective.behavior.gallery.behaviors.folderish_gallery interface for patrimoine
