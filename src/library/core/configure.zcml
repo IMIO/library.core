@@ -20,12 +20,12 @@
   <include package=".widget" />
   <include package=".content" />
   <include package=".tiles" />
+  <include package=".upgrades" />
   <include package=".viewlets" />
 
   <include file="indexers.zcml" />
   <include file="permissions.zcml" />
   <include file="subscribers.zcml" />
-  <include file="upgrades.zcml" />
 
   <genericsetup:registerProfile
       name="default"

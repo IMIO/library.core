@@ -5,7 +5,8 @@ Changelog
 2.1.6 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fix collective.behavior.gallery.behaviors.folderish_gallery interface for patrimoine
+  [boulch]
 
 
 2.1.5 (2025-01-14)

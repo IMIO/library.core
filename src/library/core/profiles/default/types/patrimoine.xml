@@ -33,7 +33,7 @@
   <element value="plone.app.dexterity.behaviors.discussion.IAllowDiscussion"/>
   <element value="plone.app.imagecropping.behaviors.IImageCroppingBehavior"/>
   <element value="plone.app.contenttypes.behaviors.leadimage.ILeadImageBehavior"/>
-  <element value="collective.behavior.gallery.behaviors.folderish_gallery"/>
+  <element value="collective.behavior.gallery.behaviors.folderish_gallery.IFolderishGallery" /> 
   <element value="plone.app.dexterity.behaviors.nextprevious.INextPreviousEnabled"/>
   <element value="plone.app.dexterity.behaviors.metadata.IDublinCore"/>
   <element value="collective.geolocationbehavior.geolocation.IGeolocatable"/>
