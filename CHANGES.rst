@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-2.1.7 (unreleased)
+2.1.7 (2026-02-11)
 ------------------
 
 - BIBLIBDC-134 : Fix select2 display taxonomy term identifier instead of term label
