@@ -5,7 +5,8 @@ Changelog
 2.1.7 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- BIBLIBDC-134 : Fix select2 display taxonomy term identifier instead of term label
+  [boulch]
 
 
 2.1.6 (2025-06-18)

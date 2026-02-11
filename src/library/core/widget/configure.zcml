@@ -43,13 +43,13 @@
       factory=".overrides.ChoiceWidgetDispatcher"
       />
 
-   <!-- Multiple choice taxonomy -->
+  <!-- Multiple choice taxonomy -->
   <include package="collective.monkeypatcher" />
   <monkey:patch zcml:condition="installed collective.taxonomy"
       description="Replace collective.taxonomy.widget.TaxonomySelectFieldWidget by collective.z3cform.select2.widget.widget.MultiSelect2FieldWidget"
       module="collective.taxonomy.widget"
       original="TaxonomySelectFieldWidget"
-      replacement="collective.z3cform.select2.widget.widget.MultiSelect2FieldWidget"
+      replacement="plone.app.z3cform.widgets.select.Select2FieldWidget"
       />
-
+   
 </configure>
