@@ -5,7 +5,8 @@ Changelog
 2.1.8 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Migrate to Plone 6.1.4
+  [boulch]
 
 
 2.1.7 (2026-02-11)
