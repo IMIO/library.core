@@ -5,6 +5,10 @@ Changelog
 2.1.8 (unreleased)
 ------------------
 
+- Use plone.app.discussion.behaviors.IAllowDiscussion
+  plone.app.dexterity.behaviors.discussion.IAllowDiscussion has been deprecated
+  [remdub]
+
 - Migrate to Plone 6.1.4
   [boulch]
 

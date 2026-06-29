@@ -30,10 +30,10 @@
   <element value="collective.taxonomy.generated.patrimoine"/>
   <element value="collective.taxonomy.generated.dossiers"/>
   <element value="plone.app.content.interfaces.INameFromTitle"/>
-  <element value="plone.app.dexterity.behaviors.discussion.IAllowDiscussion"/>
+  <element value="plone.app.discussion.behaviors.IAllowDiscussion"/>
   <element value="plone.app.imagecropping.behaviors.IImageCroppingBehavior"/>
   <element value="plone.app.contenttypes.behaviors.leadimage.ILeadImageBehavior"/>
-  <element value="collective.behavior.gallery.behaviors.folderish_gallery.IFolderishGallery" /> 
+  <element value="collective.behavior.gallery.behaviors.folderish_gallery.IFolderishGallery" />
   <element value="plone.app.dexterity.behaviors.nextprevious.INextPreviousEnabled"/>
   <element value="plone.app.dexterity.behaviors.metadata.IDublinCore"/>
   <element value="collective.geolocationbehavior.geolocation.IGeolocatable"/>

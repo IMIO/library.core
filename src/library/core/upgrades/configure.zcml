@@ -10,6 +10,14 @@
     provides="Products.GenericSetup.interfaces.EXTENSION"
     />
 
+  <genericsetup:registerProfile
+    name="upgrade_1004_to_1005"
+    title="Upgrade core from 1004 to 1005"
+    directory="profiles/1004_to_1005"
+    description="Fix plone.app.dexterity.behaviors.discussion.IAllowDiscussion interface for patrimoine"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
   <!--<genericsetup:upgradeStep
     source="*"
     destination="1001"
@@ -30,7 +38,7 @@
 
   <genericsetup:upgradeStep
     source="1002"
-    destination="1003"    
+    destination="1003"
     title="Add comment_picture index"
     description="Adds a FieldIndex for the comment picture"
     profile="library.core:default"
@@ -44,6 +52,16 @@
     <genericsetup:upgradeDepends
       title="Fix collective.behavior.gallery.behaviors.folderish_gallery interface for patrimoine"
       import_profile="library.core.upgrades:upgrade_1003_to_1004"
+    />
+  </genericsetup:upgradeSteps>
+
+  <genericsetup:upgradeSteps
+    source="1004"
+    destination="1005"
+    profile="library.core:default">
+    <genericsetup:upgradeDepends
+      title="Fix plone.app.dexterity.behaviors.discussion.IAllowDiscussion interface for patrimoine"
+      import_profile="library.core.upgrades:upgrade_1004_to_1005"
     />
   </genericsetup:upgradeSteps>
 
