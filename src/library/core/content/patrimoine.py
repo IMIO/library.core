@@ -382,13 +382,13 @@ class IPatrimoine(model.Schema):
 
 class DateValidator(SimpleFieldValidator):
     regex_formats = {
-        "\d{8}$": "%d%m%Y",
-        "\d{6}$": "%m%Y",
-        "\d{4}$": "%Y",
-        "\d{1,2}/\d{1,2}/\d{4}$": "%d/%m/%Y",
-        "\d{1,2}/\d{4}$": "%m/%Y",
-        "\d{1,2}-\d{1,2}-\d{4}$": "%d-%m-%Y",
-        "\d{1,2}-\d{4}$": "%m-%Y",
+        r"\d{8}$": "%d%m%Y",
+        r"\d{6}$": "%m%Y",
+        r"\d{4}$": "%Y",
+        r"\d{1,2}/\d{1,2}/\d{4}$": "%d/%m/%Y",
+        r"\d{1,2}/\d{4}$": "%m/%Y",
+        r"\d{1,2}-\d{1,2}-\d{4}$": "%d-%m-%Y",
+        r"\d{1,2}-\d{4}$": "%m-%Y",
     }
 
     def validate(self, value, force=False):
