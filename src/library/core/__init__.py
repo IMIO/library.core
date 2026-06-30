@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 """Init and utils."""
+
 from Acquisition import aq_base
 from plone.resource.file import FilesystemFile
 from Products.CMFPlone.resources import utils
@@ -8,7 +9,6 @@ from Products.CMFPlone.resources.utils import get_override_directory
 from Products.CMFPlone.resources.utils import logger
 from zExceptions import NotFound
 from zope.i18nmessageid import MessageFactory
-
 
 _ = MessageFactory("library.core")
 
@@ -41,7 +41,7 @@ def patched_get_resource(context, path):
         )  # noqa
         return
     if isinstance(resource, FilesystemFile):
-        (directory, sep, filename) = path.rpartition("/")
+        directory, sep, filename = path.rpartition("/")
         return context.unrestrictedTraverse(directory).readFile(filename)
     # calling the resource may modify the header, i.e. the content-type.
     # we do not want this, so keep the original header intact.
