@@ -14,7 +14,7 @@
     name="upgrade_1004_to_1005"
     title="Upgrade core from 1004 to 1005"
     directory="profiles/1004_to_1005"
-    description="Fix plone.app.dexterity.behaviors.discussion.IAllowDiscussion interface for patrimoine"
+    description="Fix plone.app.dexterity.behavior.discussion.IAllowDiscussion interface for patrimoine"
     provides="Products.GenericSetup.interfaces.EXTENSION"
     />
 
@@ -60,7 +60,7 @@
     destination="1005"
     profile="library.core:default">
     <genericsetup:upgradeDepends
-      title="Fix plone.app.dexterity.behaviors.discussion.IAllowDiscussion interface for patrimoine"
+      title="Fix plone.app.dexterity.behavior.discussion.IAllowDiscussion interface for patrimoine"
       import_profile="library.core.upgrades:upgrade_1004_to_1005"
     />
   </genericsetup:upgradeSteps>

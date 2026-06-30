@@ -7,7 +7,7 @@
   <element value="collective.taxonomy.generated.patrimoine"/>
   <element value="collective.taxonomy.generated.dossiers"/>
   <element value="plone.app.content.interfaces.INameFromTitle"/>
-  <element value="plone.app.discussion.behaviors.IAllowDiscussion"/>
+  <element value="plone.allowdiscussion"/>
   <element value="plone.app.imagecropping.behaviors.IImageCroppingBehavior"/>
   <element value="plone.app.contenttypes.behaviors.leadimage.ILeadImageBehavior"/>
   <element value="collective.behavior.gallery.behaviors.folderish_gallery.IFolderishGallery" />

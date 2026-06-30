@@ -44,19 +44,19 @@ setup(
     zip_safe=False,
     install_requires=[
         # -*- Extra requirements: -*-
+        "collective.behavior.gallery",
+        "collective.faceted.map",
+        "collective.geolocationbehavior",
+        "collective.taxonomy",
+        "collective.z3cform.select2>=3.0.0b6",
+        "iaweb.mosaic",
         "plone.api>=1.8.4",
+        "plone.app.discussion",
         "plone.restapi",
         "Products.GenericSetup>=1.8.2",
         "setuptools",
         "z3c.jbot",
         "z3c.unconfigure",
-        "plone.app.discussion",
-        "collective.behavior.gallery",
-        "collective.geolocationbehavior",
-        "collective.taxonomy",
-        "collective.z3cform.select2>=3.0.0b6",
-        "collective.faceted.map",
-        "iaweb.mosaic",
     ],
     extras_require={
         "test": [
