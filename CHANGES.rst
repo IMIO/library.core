@@ -2,7 +2,7 @@ Changelog
 =========
 
 
-2.1.8 (unreleased)
+2.1.8 (2026-07-07)
 ------------------
 
 - Use plone.app.discussion.behaviors.IAllowDiscussion
