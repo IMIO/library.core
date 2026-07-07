@@ -9,6 +9,9 @@ Changelog
   plone.app.dexterity.behaviors.discussion.IAllowDiscussion has been deprecated
   [remdub]
 
+- Migrate dev environment to Plone 6.1.5 and buildout 5
+  [remdub]
+
 - Migrate to Plone 6.1.4
   [boulch]
 
