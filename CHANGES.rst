@@ -2,10 +2,11 @@ Changelog
 =========
 
 
-2.1.9 (unreleased)
+3.0.0 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Switch to PEP 420 native namespace package.
+  [remdub]
 
 
 2.1.8 (2026-07-07)

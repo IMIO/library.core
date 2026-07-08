@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """Installer for the library.core package."""
 
-from setuptools import find_packages
+from setuptools import find_namespace_packages
 from setuptools import setup
 
 long_description = "\n\n".join(
@@ -25,8 +25,6 @@ setup(
         "Framework :: Plone :: 6.1",
         "Framework :: Plone :: Addon",
         "Programming Language :: Python",
-        "Programming Language :: Python :: 3.10",
-        "Programming Language :: Python :: 3.11",
         "Programming Language :: Python :: 3.12",
         "Operating System :: OS Independent",
         "License :: OSI Approved :: GNU General Public License v2 (GPLv2)",
@@ -36,8 +34,7 @@ setup(
     author_email="support@imio.be",
     url="https://pypi.python.org/pypi/library.core",
     license="GPL version 2",
-    packages=find_packages("src", exclude=["ez_setup"]),
-    namespace_packages=["library"],
+    packages=find_namespace_packages("src", exclude=["ez_setup"]),
     package_dir={"": "src"},
     include_package_data=True,
     zip_safe=False,
