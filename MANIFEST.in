@@ -1,4 +1,4 @@
-graft src/library
+graft src/bibliotheca
 graft docs
 include *.rst
 include *.GPL

@@ -1,4 +1,4 @@
-library.core Copyright 2018, Nicolas Demonte
+bibliotheca.core Copyright 2018, Nicolas Demonte
 
 This program is free software; you can redistribute it and/or
 modify it under the terms of the GNU General Public License version 2

@@ -5,7 +5,8 @@ Changelog
 3.0.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Rename to bibliotheque.core.
+  [bsuttor]
 
 
 3.0.0 (2026-07-08)

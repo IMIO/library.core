@@ -1,3 +1,3 @@
-============library.core
+============bibliotheca.core
 ============
 User documentation

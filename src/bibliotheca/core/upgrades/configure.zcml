@@ -1,0 +1,68 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:genericsetup="http://namespaces.zope.org/genericsetup">
+
+  <genericsetup:registerProfile
+    name="upgrade_1003_to_1004"
+    title="Upgrade core from 1003 to 1004"
+    directory="profiles/1003_to_1004"
+    description="Fix collective.behavior.gallery.behaviors.folderish_gallery interface for patrimoine"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
+  <genericsetup:registerProfile
+    name="upgrade_1004_to_1005"
+    title="Upgrade core from 1004 to 1005"
+    directory="profiles/1004_to_1005"
+    description="Fix plone.app.dexterity.behavior.discussion.IAllowDiscussion interface for patrimoine"
+    provides="Products.GenericSetup.interfaces.EXTENSION"
+    />
+
+  <!--<genericsetup:upgradeStep
+    source="*"
+    destination="1001"
+    title="Reload GS profiles"
+    description=""
+    profile="bibliotheca.core:default"
+    handler=".upgrades.reload_gs_profile"
+    />-->
+
+  <genericsetup:upgradeStep
+    source="1001"
+    destination="1002"
+    title="Set geolocation behavior"
+    description=""
+    profile="bibliotheca.core:default"
+    handler=".upgrades.geolocation_behavior"
+    />
+
+  <genericsetup:upgradeStep
+    source="1002"
+    destination="1003"
+    title="Add comment_picture index"
+    description="Adds a FieldIndex for the comment picture"
+    profile="bibliotheca.core:default"
+    handler=".upgrades.add_comment_picture_index"
+    />
+
+  <genericsetup:upgradeSteps
+    source="1003"
+    destination="1004"
+    profile="bibliotheca.core:default">
+    <genericsetup:upgradeDepends
+      title="Fix collective.behavior.gallery.behaviors.folderish_gallery interface for patrimoine"
+      import_profile="bibliotheca.core.upgrades:upgrade_1003_to_1004"
+    />
+  </genericsetup:upgradeSteps>
+
+  <genericsetup:upgradeSteps
+    source="1004"
+    destination="1005"
+    profile="bibliotheca.core:default">
+    <genericsetup:upgradeDepends
+      title="Fix plone.app.dexterity.behavior.discussion.IAllowDiscussion interface for patrimoine"
+      import_profile="bibliotheca.core.upgrades:upgrade_1004_to_1005"
+    />
+  </genericsetup:upgradeSteps>
+
+</configure>

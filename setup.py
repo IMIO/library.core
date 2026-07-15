@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Installer for the library.core package."""
+"""Installer for the bibliotheca.core package."""
 
 from setuptools import find_namespace_packages
 from setuptools import setup
@@ -14,7 +14,7 @@ long_description = "\n\n".join(
 
 
 setup(
-    name="library.core",
+    name="bibliotheca.core",
     version="3.0.1.dev0",
     description="Core package for Bibliotheca",
     long_description=long_description,
@@ -32,7 +32,7 @@ setup(
     keywords="Python Plone",
     author="Nicolas Demonte",
     author_email="support@imio.be",
-    url="https://pypi.python.org/pypi/library.core",
+    url="https://pypi.python.org/pypi/bibliotheca.core",
     license="GPL version 2",
     packages=find_namespace_packages("src", exclude=["ez_setup"]),
     package_dir={"": "src"},
@@ -70,6 +70,6 @@ setup(
     [z3c.autoinclude.plugin]
     target = plone
     [console_scripts]
-    update_locale = library.core.locales.update:update_locale
+    update_locale = bibliotheca.core.locales.update:update_locale
     """,
 )
