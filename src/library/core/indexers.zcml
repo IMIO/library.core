@@ -2,7 +2,7 @@
     xmlns="http://namespaces.zope.org/zope">
 
     <adapter
-        name="comment_picture"
+        name="comment_picture_migration"
         factory=".indexers.comment_picture_indexer"
         />
 
